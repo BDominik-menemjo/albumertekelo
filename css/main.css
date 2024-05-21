@@ -1,0 +1,35 @@
+/*NAVBAR*/
+.nav-link, nav:visited{
+    color: white!important;
+}
+/*FOOTER*/
+footer{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+a:link, a:visited, a:active, a{
+    text-decoration: none;
+    color:inherit;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #909090;
+    font-size: 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h2{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+p{
+    margin-top: 10px;
+}
