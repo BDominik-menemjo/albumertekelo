@@ -33,3 +33,15 @@ h2{
 p{
     margin-top: 10px;
 }
+
+.zene-link{
+    border-radius: 20px;
+    color: #f23d43;
+    padding: 10px;
+}
+
+.zene-link:hover{
+    background-color: #756e6e;
+    color: #d11313;
+    transform: scale(1.5);
+}

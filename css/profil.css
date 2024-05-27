@@ -1,0 +1,10 @@
+.profile-pic-main{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+h5{
+    color: #915050;
+}
