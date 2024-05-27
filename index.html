@@ -22,16 +22,19 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-0">
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Főoldal</a>
+                        <a class="nav-link" href="./index.html">Főoldal</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Kategóriák</a>
+                        <a class="nav-link" href="./kategoriak.html">Kategóriák</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Profil</a>
+                        <a class="nav-link" href="./profil.html">Profil</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Impresszum</a>
+                        <a class="nav-link" href="./impresszum.html">Impresszum</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="./bejelentkezes.html">Ez csak placeholder</a>
                       </li>
                     </ul>
                   </div>
@@ -46,21 +49,22 @@
                     <div class="col-lg-4 col-md-4 text-center">
                         <img src="./media/Station_to_Station_cover.jpg" alt="Station to Station cover" title="Station to Station cover" height="300px" width="300px">
                         <p>David Bowie - Station to Station</p>
-                        <a href="https://open.spotify.com/album/0MWrKayUshRuT8maG4ZAOU?si=fILYno_mQDCJ6dseIAXOvw"><span class="zene-link">Hallgasd meg itt!</span></a>
+                        <a href="https://open.spotify.com/album/0MWrKayUshRuT8maG4ZAOU?si=fILYno_mQDCJ6dseIAXOvw" target="_blank"><span class="zene-link">Hallgasd meg itt!</span></a>
                     </div>
                     <div class="col-lg-4 col-md-4 text-center">
                         <img src="./media/Michael_Jackson_-_Bad.png" alt="Bad cover" title="Bad cover">
                         <p>Michael Jackson - Bad</p>
-                        <a href="https://open.spotify.com/album/3Us57CjssWnHjTUIXBuIeH?si=vLBxiKG6SQaz5obR6y4TZw"><span class="zene-link">Hallgasd meg itt!</span></a>
+                        <a href="https://open.spotify.com/album/3Us57CjssWnHjTUIXBuIeH?si=vLBxiKG6SQaz5obR6y4TZw" target="_blank"><span class="zene-link">Hallgasd meg itt!</span></a>
                     </div>
                     <div class="col-lg-4 col-md-4 text-center">
                         <img src="./media/Juice_Wrld_-_Legends_Never_Die.png" alt="Legends Never Die cover" title="Legends Never Die cover">
                         <p>Juice Wrld - Legends Never Die</p>
-                        <a href="https://open.spotify.com/album/6n9DKpOxwifT5hOXtgLZSL?si=H67YroZ-SUSwyG94ZUV21g"><span class="zene-link">Hallgasd meg itt!</span></a>
+                        <a href="https://open.spotify.com/album/6n9DKpOxwifT5hOXtgLZSL?si=H67YroZ-SUSwyG94ZUV21g" target="_blank"><span class="zene-link">Hallgasd meg itt!</span></a>
                     </div>
                 </div>
                 <hr>
                 <h2>Friss hírek</h2>
+                <!-- 
                 <div class="row">
                     <div class="col-lg-4 col-md-4 text-center">
                         <a href="https://youtu.be/75LuLP18jNY"><img src="./media/serj.webp">
@@ -74,6 +78,33 @@
                         <a href="https://consequence.net/2024/05/childish-gambino-world-tour-atavista/"><img src="./media/gambino.webp" height="199px" width="350px">
                             <p>Childis Gambino világ körüli turnét jelent be</p></a>
                     </div>
+                </div>
+                 -->
+                <div class="row carousel">
+                  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active" data-bs-interval="5000">
+                        <a href="https://youtu.be/75LuLP18jNY" target="_blank"><img src="./media/serj.webp">
+                          <p>Új szám: Serj Tankian - "A.F. Day"</p></a>
+                      </div>
+                      <div class="carousel-item" data-bs-interval="5000">
+                        <a href="https://www.stereogum.com/2263812/tame-impalas-kevin-parker-sells-entire-past-and-future-song-catalog/news/" target="_blank"><img src="./media/impala.webp">
+                          <p>Kevin Parker, a Tame Impala énekese eladja egész zenei katalógusukat</p></a>
+                      </div>
+                      <div class="carousel-item" data-bs-interval="5000">
+                        <a href="https://consequence.net/2024/05/childish-gambino-world-tour-atavista/" target="_blank"><img src="./media/gambino.webp" height="199px" width="350px">
+                          <p>Childis Gambino világ körüli turnét jelent be</p></a>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
                 </div>
             </div>
         </section>

@@ -6,6 +6,7 @@
         <title>Albumértékelő weboldal</title>
         <link rel="stylesheet" href="./css/bootstrap.min.css">
         <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/bejelentkezes.css">
         <script src="./js/bootstrap.bundle.js"></script>
     </head>
     <body>
@@ -33,31 +34,30 @@
                       <li class="nav-item">
                         <a class="nav-link" href="./impresszum.html">Impresszum</a>
                       </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="./bejelentkezes.html">Ez csak placeholder</a>
+                      </li>
                     </ul>
                   </div>
                 </div>
               </nav>
         </header>
         <!--MAIN-->
-        <section>
-            <h3>Kategóriák</h3>
-            <div class="container-fluid">
-                <select name="kategoriak" id="kategoriak" class="form-control">
-                    <option value="def" selected disabled>Kérjük válasszon!</option>
-                    <option value="rock">Rock</option>
-                    <option value="Pop">Pop</option>
-                    <option value="hip-hop">Hip-Hop</option>
-                    <option value="metal">Metál</option>
-                    <option value="Punk">Punk</option>
-                </select>
-                <div class="row">
-                    
+        <section class="box-nagy">
+            <div class="box">
+                <h2>Login Form</h2>
+                <div class="form">
+                    <form action="">
+                        <div class="inputbox">
+                            <input type="text" value="" id="username" required>
+                            <span>Username</span>
+                        </div>
+                        <div class="inputbox">
+                            <input type="password" value="" id="password" required>
+                            <span>Password</span>
+                        </div>
+                        <input type="submit" value="submit" id="">
+                    </form>
                 </div>
-            </div>   
+            </div>
         </section>
-        <!--FOOTER-->
-        <footer class="mt-auto py-3">
-            <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
-        </footer>
-    </body>
-</html>
