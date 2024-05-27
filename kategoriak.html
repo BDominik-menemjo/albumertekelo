@@ -1,63 +1,199 @@
 <!DOCTYPE html>
 <html lang="hu">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Albumértékelő weboldal</title>
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
-        <link rel="stylesheet" href="./css/main.css">
-        <script src="./js/bootstrap.bundle.js"></script>
-    </head>
-    <body>
-        <!--NAVBAR-->
-        <header class="sticky-top">
-            <nav class="navbar navbar-expand-lg bg-dark p-0">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="./index.html"></a>
-                  <button class="navbar-toggler ms-auto border-light" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-0">
-                      <li class="nav-item">
-                        <a class="nav-link" href="./index.html">Főoldal</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="./kategoriak.html">Kategóriák</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="./profil.html">Profil</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="./impresszum.html">Impresszum</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-        </header>
-        <!--MAIN-->
-        <section>
-            <h3>Kategóriák</h3>
-            <div class="container-fluid">
-                <select name="kategoriak" id="kategoriak" class="form-control">
-                    <option value="def" selected disabled>Kérjük válasszon!</option>
-                    <option value="rock">Rock</option>
-                    <option value="Pop">Pop</option>
-                    <option value="hip-hop">Hip-Hop</option>
-                    <option value="metal">Metál</option>
-                    <option value="Punk">Punk</option>
-                </select>
-                <div class="row">
-                    
-                </div>
-            </div>   
-        </section>
-        <!--FOOTER-->
-        <footer class="mt-auto py-3">
-            <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
-        </footer>
-    </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Albumértékelő weboldal</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="./js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+  <!--NAVBAR-->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg bg-dark p-0">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html"></a>
+        <button class="navbar-toggler ms-auto border-light" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-0">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Főoldal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./kategoriak.html">Kategóriák</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./profil.html">Profil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./impresszum.html">Impresszum</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <button class="btn btn-outline-success" type="button" id="signoutbutton">Kijelentkezés</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!--MAIN-->
+  <section>
+    <div class="container-fluid">
+      <div class="d-flex flex-sm-row flex-column justify-content-evenly text-center my-5">
+        <button type="button" class="btn btn-primary px-5 py-2 my-3" onclick="myFunction()">Rock</button>
+        <button type="button" class="btn btn-success px-5 py-2 my-3">Pop</button>
+        <button type="button" class="btn btn-secondary px-5 py-2 my-3">Hip-Hop</button>
+        <button type="button" class="btn btn-danger px-5 py-2 my-3">Egyéb</button>
+      </div>
+
+      <section class="cont listaRock">
+
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Artist</th>
+              <th scope="col">Album</th>
+              <th scope="col">Rating (átlag)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onclick="showReviewModal(0)">
+              <th scope="row">1</th>
+              <td>Red Hot Chili Peppers</td>
+              <td>Blood Sugar Sex Magik</td>
+              <td>
+                <span id="atlagRating">4.75</span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(1)">
+              <th scope="row">2</th>
+              <td>Guns N' Roses</td>
+              <td>Appetite For Destruction</td>
+              <td>4.5</td>
+            </tr>
+            <tr onclick="showReviewModal(2)">
+              <th scope="row">3</th>
+              <td>David Bowie</td>
+              <td>Station to Station</td>
+              <td>4.8</td>
+            </tr>
+          </tbody>
+        </table>
+      
+      </section>
+
+    </div>
+  </section>
+
+  <!--MODAL-->
+  <div class="modal fade" id="reviewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="reviewModalLabel"></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row text-center mb-3">
+              <div class="col-md-4 mb-3 mb-md-0"><img src="" class="img-fluid" id="reviewAlbumCover" alt="album cover"></div>
+              <div class="col-md-8 mb-3 mb-md-0">
+                <div class="mb-3">
+                  <textarea class="form-control reviewTextArea" id="reviewTextArea" placeholder="Write a review..." style="resize: none;"></textarea>
+                </div>                
+              </div>
+            </div>
+            <div class="d-flex justify-content-evenly">
+              <form class="rating">
+                <label>
+                  <input type="radio" name="stars" value="1" />
+                  <span class="icon">★</span>
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="2" />
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="3" />
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>   
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="4" />
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                </label>
+                <label>
+                  <input type="radio" name="stars" value="5" />
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                  <span class="icon">★</span>
+                </label>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">❌</button>
+          <button type="button" class="btn btn-primary">✅</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--FOOTER-->
+  <footer class="mt-auto py-3">
+    <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
+  </footer>
+
+  <script>
+    let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+    let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+
+    let SignOutButton = document.getElementById('signoutbutton');
+
+
+
+    let Signout = () => {
+      sessionStorage.removeItem("user-creds");
+      sessionStorage.removeItem("user-info");
+      window.location.href = 'bejelentkezes.html'
+    }
+
+    let CheckCred = () => {
+      if (!sessionStorage.getItem("user-creds"))
+        window.location.href = 'bejelentkezes.html'
+    }
+
+    window.addEventListener('load', CheckCred);
+    SignOutButton.addEventListener('click', Signout);
+
+    function myFunction() {
+      var x = document.querySelector('.listaRock');
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+
+
+  </script>
+  <script src="js/script.js"></script>
+</body>
+
 </html>

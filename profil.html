@@ -37,6 +37,9 @@
                             <a class="nav-link" href="./impresszum.html">Impresszum</a>
                         </li>
                     </ul>
+                    <form class="d-flex">
+                        <button class="btn btn-outline-success" type="button" id="signoutbutton">Kijelentkezés</button>
+                      </form>
                 </div>
             </div>
         </nav>
@@ -50,7 +53,7 @@
                             alt="Ricsi" class="profile-pic-main">
                     </div>
                     <div class="col-lg-4 col-md-4 mt-5">
-                        <h4>!USERNAME!</h4>
+                        <h4 id="profilename"></h4>
                         <h5>Ratings: xyz</h5>
                     </div>
             </div>
@@ -60,6 +63,32 @@
     <footer class="mt-auto py-3">
         <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
     </footer>
+
+    <script>
+        let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+        let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+    
+        let SignOutButton = document.getElementById('signoutbutton');
+        let Profile = document.getElementById('profilename');
+    
+        let Signout = () => {
+          sessionStorage.removeItem("user-creds");
+          sessionStorage.removeItem("user-info");
+          window.location.href = 'bejelentkezes.html'
+        }
+    
+        let CheckCred = () => {
+          if (!sessionStorage.getItem("user-creds"))
+            window.location.href = 'bejelentkezes.html'
+        }
+    
+        window.addEventListener('load', CheckCred);
+        SignOutButton.addEventListener('click', Signout);
+
+        Profile.innerText = `${UserInfo.username}`;
+
+      </script>
+
 </body>
 
 </html>
