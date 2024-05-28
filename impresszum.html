@@ -6,12 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Albumértékelő weboldal</title>
   <style>
-  @import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
   </style>
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/impresszum.css">
   <link rel="stylesheet" href="./css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
   <script src="./js/bootstrap.bundle.js"></script>
 </head>
 
@@ -56,21 +59,20 @@
           <img src="./media/Zene_disc.webp" alt="Music Disc" id="music_disc">
         </div>
         <div class="col-lg-6 col-md-6 text-center m-auto">
-          <h2 class="jaro-nev"><i>PM & BD & CsP Record Inc.</i></h2>
+          <h2 class="jaro-nev fadee"><i>PM & BD & CsP Record Inc.</i></h2>
         </div>
         <div class="row">
           <div class="col-lg-6 col-md-6">
+            <div class="fadee">
             <h3>Történetünk röviden:</h3>
+
+            <p>célunk a globális dominancia kialakítása a zeneiparaba
+            </p>
+            </div>
+
           </div>
-        </div>
-        <div>
-          <p>célunk a globális dominancia kialakítása a zeneiparaba
-          </p>
-        </div>
 
-      </div>
-
-    </div>
+        </div>
   </section>
   <hr>
   <section>
@@ -80,25 +82,31 @@
           <img src="./media/marcos.jpg" class="img-fluid kerekites" alt="PFP" id="pfp">
         </div>
         <div class="col-md-8 col-12 text-left m-auto">
-          <h3>Pásztor Marcell</h3>
-          <h3 class="mt-3">Certified Lover Boy</h3>
-          <h3 class="mt-5">Bemutatkozás:</h3>
-          <p>szerete a zene 👍
-          </p>
+          <h3 class="jaro-nev fadee">Pásztor Marcell</h3>
+          <h3 class="mt-3 jacquard-12-regular fadee">Certified Lover Boy</h3>
+          <div class="fadee">
+            <h3 class="mt-5">Bemutatkozás:</h3>
+            <p>szerete a zene 👍
+            </p>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col text-left">
-          <h3 class="mt-5">Mit is jelent számomra a zene?</h3>
-          <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat quod fugiat porro facere
-            rerum in beatae
-            quis hic repellendus architecto. Dolores eum officia aliquam repudiandae quam eligendi porro explicabo
-            similique, nihil vero ut laudantium ipsa, hic magni fugiat blanditiis eaque minus inventore? Numquam nam
-            ipsum voluptatibus ipsam fuga, ad consequatur sequi mollitia, corporis voluptatem non cumque harum, expedita
-            aliquam minima odio provident dolor nesciunt illo. Facere, facilis, beatae quasi tenetur ipsa aliquam
-            dignissimos perferendis impedit rerum, voluptatibus laudantium eum voluptatum officia dolor modi. Excepturi
-            obcaecati eaque dolores, ipsum soluta esse!
-          </p>
+          <div class="fadee">
+            <h3 class="mt-5">Mit is jelent számomra a zene?</h3>
+            <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat quod fugiat porro facere
+              rerum in beatae
+              quis hic repellendus architecto. Dolores eum officia aliquam repudiandae quam eligendi porro explicabo
+              similique, nihil vero ut laudantium ipsa, hic magni fugiat blanditiis eaque minus inventore? Numquam nam
+              ipsum voluptatibus ipsam fuga, ad consequatur sequi mollitia, corporis voluptatem non cumque harum,
+              expedita
+              aliquam minima odio provident dolor nesciunt illo. Facere, facilis, beatae quasi tenetur ipsa aliquam
+              dignissimos perferendis impedit rerum, voluptatibus laudantium eum voluptatum officia dolor modi.
+              Excepturi
+              obcaecati eaque dolores, ipsum soluta esse!
+            </p>
+          </div>
           <h2 class="mt-5">Kedvenc albumjaim:</h2>
         </div>
 
@@ -118,7 +126,8 @@
             target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
         </div>
         <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/wutang.jpg" alt="Enter the Wu-Tang cover" title="Enter the Wu-Tang cover" class="hover-image meretezes">
+          <img src="./media/wutang.jpg" alt="Enter the Wu-Tang cover" title="Enter the Wu-Tang cover"
+            class="hover-image meretezes">
           <p>Wu-Tang Clan - Enter the Wu-Tang</p>
           <a href="https://open.spotify.com/album/3tQd5mwBtVyxCoEo4htGAV?si=IV7yjAYUQQKKB9NonuoCJg"
             target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
@@ -136,51 +145,60 @@
           <img src="./media/bd.jpg" class="img-fluid kerekites" alt="PFP" id="pfp">
         </div>
         <div class="col-md-8 col-12 text-left m-auto">
-          <h3>Bélai Dominik</h3>
-          <h3 class="mt-3">Certified King</h3>
-          <h3 class="mt-5">Bemutatkozás:</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil laboriosam temporibus sapiente eum neque
-            rerum minus a, soluta id qui placeat eveniet laudantium porro omnis repudiandae rem aliquid excepturi
-            voluptates quam ex quidem nemo reprehenderit obcaecati enim. Saepe vero accusantium harum sapiente fugiat,
-            nesciunt dolor, explicabo, iusto corrupti fuga numquam.
-          </p>
+          <h3 class="jaro-nev fadee">Bélai Dominik</h3>
+          <h3 class="mt-3 jacquard-12-regular fadee">Certified King</h3>
+          <div class="fadee">
+            <h3 class="mt-5">Bemutatkozás:</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil laboriosam temporibus sapiente eum neque
+              rerum minus a, soluta id qui placeat eveniet laudantium porro omnis repudiandae rem aliquid excepturi
+              voluptates quam ex quidem nemo reprehenderit obcaecati enim. Saepe vero accusantium harum sapiente fugiat,
+              nesciunt dolor, explicabo, iusto corrupti fuga numquam.
+            </p>
+          </div>
 
         </div>
       </div>
       <div class="row">
         <div class="col text-left">
-          <h3 class="mt-5 kiemeles">Mit is jelent számomra a zene?</h3>
-          <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat quod fugiat porro facere
-            rerum in beatae
-            quis hic repellendus architecto. Dolores eum officia aliquam repudiandae quam eligendi porro explicabo
-            similique, nihil vero ut laudantium ipsa, hic magni fugiat blanditiis eaque minus inventore? Numquam nam
-            ipsum voluptatibus ipsam fuga, ad consequatur sequi mollitia, corporis voluptatem non cumque harum, expedita
-            aliquam minima odio provident dolor nesciunt illo. Facere, facilis, beatae quasi tenetur ipsa aliquam
-            dignissimos perferendis impedit rerum, voluptatibus laudantium eum voluptatum officia dolor modi. Excepturi
-            obcaecati eaque dolores, ipsum soluta esse!
-          </p>
+          <div class="fadee">
+            <h3 class="mt-5">Mit is jelent számomra a zene?</h3>
+            <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat quod fugiat porro facere
+              rerum in beatae
+              quis hic repellendus architecto. Dolores eum officia aliquam repudiandae quam eligendi porro explicabo
+              similique, nihil vero ut laudantium ipsa, hic magni fugiat blanditiis eaque minus inventore? Numquam nam
+              ipsum voluptatibus ipsam fuga, ad consequatur sequi mollitia, corporis voluptatem non cumque harum,
+              expedita
+              aliquam minima odio provident dolor nesciunt illo. Facere, facilis, beatae quasi tenetur ipsa aliquam
+              dignissimos perferendis impedit rerum, voluptatibus laudantium eum voluptatum officia dolor modi.
+              Excepturi
+              obcaecati eaque dolores, ipsum soluta esse!
+            </p>
+          </div>
           <h2 class="mt-5">Kedvenc albumjaim:</h2>
         </div>
 
       </div>
       <div class="row mt-3">
         <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/aquemini.jpg" alt="Aquemini cover" title="Aquemini cover" class="hover-image meretezes">
-          <p>Outkast - Aquemini</p>
-          <a href="https://open.spotify.com/album/5ceB3rxgXqIRpsOvVzTG28?si=OQZhcOa1SzybimQ8YItztQ"
-            target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
-        </div>
-        <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/redhot.webp" alt="Blood Sugar Sex Magik cover" title="Blood Sugar Sex Magik cover"
+          <img src="./media/station.jpg" alt="Station to station cover" title="Station to station cover"
             class="hover-image meretezes">
-          <p>Red Hot Chili Peppers - Blood Sugar Sex Magik</p>
-          <a href="https://open.spotify.com/album/30Perjew8HyGkdSmqguYyg?si=tRx9w_Z-QmquhNm0ry0_cQ"
+          <p>David Bowie - Station to Station</p>
+          <a href="https://open.spotify.com/album/0MWrKayUshRuT8maG4ZAOU?si=fILYno_mQDCJ6dseIAXOvw"
             target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
         </div>
         <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/wutang.jpg" alt="Enter the Wu-Tang cover" title="Enter the Wu-Tang cover" class="hover-image meretezes">
-          <p>Wu-Tang Clan - Enter the Wu-Tang</p>
-          <a href="https://open.spotify.com/album/3tQd5mwBtVyxCoEo4htGAV?si=IV7yjAYUQQKKB9NonuoCJg"
+          <img src="./media/crimson.jpeg" alt="In the Court of the Crimson King
+          cover" title="In the Court of the Crimson King
+          cover" class="hover-image meretezes">
+          <p>King Crimson - In the Court of the Crimson King
+          </p>
+          <a href="https://open.spotify.com/album/75ol9OP8bJaRqzGimpFHDm?si=QM0GnmHpSDqXR_2BTWozrA"
+            target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
+        </div>
+        <div class="col-lg-4 col-md-4 text-center image-container">
+          <img src="./media/wall.jpg" alt="The Wall cover" title="The Wall cover" class="hover-image meretezes">
+          <p>Pink Floyd - The Wall</p>
+          <a href="https://open.spotify.com/album/6WaIQHxEHtZL0RZ62AuY0g?si=3JwaqFjrQxigJZIdb48auw"
             target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
         </div>
 
@@ -196,43 +214,64 @@
           <img src="./media/cspp.jpg" class="img-fluid kerekites" alt="PFP" id="pfp">
         </div>
         <div class="col-md-8 col-12 text-left m-auto">
-          <h3>Csótai Péter</h3>
-          <h3 class="mt-3">Melodic Rap Enjoyer</h3>
-          <h3 class="mt-5">Bemutatkozás:</h3>
-          <p>Kedves látogató! Csótai Péter vagyok, 18 éves és szenvedélyesen szeretem a zenét. Már kisgyerekkorom óta a zene az életem szerves része, és minden lépésemet végigkísérte. Az első pillanattól kezdve éreztem, hogy a zene az, amiben igazán ki tudom fejezni magam. <br>Számomra a zene nem csak hobbi vagy munka, hanem életforma. Minden egyes dallal, amit írok vagy előadok, egy darabot adok magamból a világnak. Hiszem, hogy a zene képes összekötni az embereket, és szeretném ezt az összekötő erőt minél szélesebb körben megosztani.
-          </p>
+          <h3 class="jaro-nev fadee">Csótai Péter</h3>
+          <h3 class="mt-3 jacquard-12-regular fadee">Melodic Rap Enjoyer</h3>
+          <div class="fadee">
+            <h3 class="mt-5">Bemutatkozás:</h3>
+            <p>Kedves látogató! Csótai Péter vagyok, 18 éves és szenvedélyesen szeretem a zenét. Már kisgyerekkorom óta
+              a zene az életem szerves része, és minden lépésemet végigkísérte. Az első pillanattól kezdve éreztem, hogy
+              a zene az, amiben igazán ki tudom fejezni magam. <br>Számomra a zene nem csak hobbi vagy munka, hanem
+              életforma. Minden egyes dallal, amit írok vagy előadok, egy darabot adok magamból a világnak. Hiszem, hogy
+              a zene képes összekötni az embereket, és szeretném ezt az összekötő erőt minél szélesebb körben
+              megosztani.
+            </p>
+          </div>
 
         </div>
       </div>
       <div class="row">
         <div class="col text-left">
-          <h3 class="mt-5">Mit is jelent számomra a zene?</h3>
-          <p class="mt-4">A zene számomra több, mint egyszerű hangok sorozata; ez az életem szerves része és a legmélyebb érzelmeim kifejezője. Gyerekkorom óta a zene volt az, ami átsegített a nehéz pillanatokon és ami megosztotta velem az örömöket. Amikor zenélek, úgy érzem, mintha egy másik világba lépnék, ahol minden gondolat és érzés szabadon áramolhat. <br>
+          <div class="fadee">
+            <h3 class="mt-5">Mit is jelent számomra a zene?</h3>
+            <p class="mt-4">A zene számomra több, mint egyszerű hangok sorozata; ez az életem szerves része és a
+              legmélyebb érzelmeim kifejezője. Gyerekkorom óta a zene volt az, ami átsegített a nehéz pillanatokon és
+              ami
+              megosztotta velem az örömöket. Amikor zenélek, úgy érzem, mintha egy másik világba lépnék, ahol minden
+              gondolat és érzés szabadon áramolhat. <br>
 
-            A zene számomra a kommunikáció egy különleges formája. Sokszor úgy érzem, hogy amit szavakkal nem tudok kifejezni, azt a zene tökéletesen át tudja adni. Egy dalban ott van minden öröm, bánat, remény és álom, amit megélek. Minden egyes dallam, amit megírok, és minden hang, amit megszólaltatok, egy darabot hordoz belőlem. <br>
-            
-            A zene ereje abban rejlik, hogy képes összekötni az embereket. Akár egy koncerten, akár egy baráti összejövetelen, a zene mindig képes közös élményeket teremteni és hidakat építeni az emberek között. Ez az összekötő erő az, ami igazán különlegessé teszi a zenét számomra.
-          </p>
+              A zene számomra a kommunikáció egy különleges formája. Sokszor úgy érzem, hogy amit szavakkal nem tudok
+              kifejezni, azt a zene tökéletesen át tudja adni. Egy dalban ott van minden öröm, bánat, remény és álom,
+              amit
+              megélek. Minden egyes dallam, amit megírok, és minden hang, amit megszólaltatok, egy darabot hordoz
+              belőlem.
+              <br>
+
+              A zene ereje abban rejlik, hogy képes összekötni az embereket. Akár egy koncerten, akár egy baráti
+              összejövetelen, a zene mindig képes közös élményeket teremteni és hidakat építeni az emberek között. Ez az
+              összekötő erő az, ami igazán különlegessé teszi a zenét számomra.
+            </p>
+          </div>
           <h2 class="mt-5">Kedvenc albumjaim:</h2>
         </div>
 
       </div>
       <div class="row mt-3">
         <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/drfl.png" alt="Death Race For Love cover" title="Death Race For Love cover" class="hover-image meretezes">
+          <img src="./media/drfl.png" alt="Death Race For Love cover" title="Death Race For Love cover"
+            class="hover-image meretezes">
           <p>Juice WRLD - Death Race For Love</p>
           <a href="https://open.spotify.com/album/1btu0SV2DOI5HoFsvUd78F?si=MdO6BMLWTfGjFY8w7uE7Rw"
             target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
         </div>
         <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/hellboy.jpg" alt="Hellboy cover" title="Hellboy cover"
-            class="hover-image meretezes">
+          <img src="./media/hellboy.jpg" alt="Hellboy cover" title="Hellboy cover" class="hover-image meretezes">
           <p>Lil Peep - Hellboy</p>
           <a href="https://open.spotify.com/album/2XCSTHVFG50wCnWPnkerRh?si=FJWSY1FdTMK6BwjO-KkINA"
             target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
         </div>
         <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/gbgr.jpg" alt="Goodbye & Good Riddance cover" title="Goodbye & Good Riddance cover" class="hover-image meretezes">
+          <img src="./media/gbgr.jpg" alt="Goodbye & Good Riddance cover" title="Goodbye & Good Riddance cover"
+            class="hover-image meretezes">
           <p>Juice WRLD - Goodbye & Good Riddance</p>
           <a href="https://open.spotify.com/album/6tkjU4Umpo79wwkgPMV3nZ?si=FiV35RBZTl-nUaXxInCm3g"
             target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
