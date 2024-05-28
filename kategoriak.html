@@ -10,7 +10,7 @@
   <script src="./js/bootstrap.bundle.js"></script>
 </head>
 
-<body>
+<body onload="clear()">
   <!--NAVBAR-->
   <header class="sticky-top">
     <nav class="navbar navbar-expand-lg bg-dark p-0">
@@ -46,15 +46,16 @@
   <!--MAIN-->
   <section>
     <div class="container-fluid">
+      <h2 class="my-5">Válassz zsánert és értékelj!</h2>
       <div class="d-flex flex-sm-row flex-column justify-content-evenly text-center my-5">
-        <button type="button" class="btn btn-primary px-5 py-2 my-3" onclick="myFunction()">Rock</button>
-        <button type="button" class="btn btn-success px-5 py-2 my-3">Pop</button>
-        <button type="button" class="btn btn-secondary px-5 py-2 my-3">Hip-Hop</button>
-        <button type="button" class="btn btn-danger px-5 py-2 my-3">Egyéb</button>
+        <button type="button" class="btn btn-primary px-5 py-2 my-3" id="rockButton" onclick="showListaRock()">Rock</button>
+        <button type="button" class="btn btn-success px-5 py-2 my-3" id="popButton" onclick="showListaPop()">Pop</button>
+        <button type="button" class="btn btn-secondary px-5 py-2 my-3" id="hipHopButton" onclick="showListaHipHop()">Hip-Hop</button>
+        <button type="button" class="btn btn-danger px-5 py-2 my-3" id="egyebButton" onclick="showListaEgyeb()">Egyéb</button>
       </div>
 
-      <section class="cont listaRock">
-
+      <section class="cont listaRock" style="display: none;">
+        <h3 class="my-4">Click to rate!</h3>
         <table class="table table-striped table-hover">
           <thead>
             <tr>
@@ -77,24 +78,159 @@
               <th scope="row">2</th>
               <td>Guns N' Roses</td>
               <td>Appetite For Destruction</td>
-              <td>4.5</td>
+              <td>
+                <span id="atlagRating">4.75</span>
+              </td>
             </tr>
             <tr onclick="showReviewModal(2)">
               <th scope="row">3</th>
               <td>David Bowie</td>
               <td>Station to Station</td>
-              <td>4.8</td>
+              <td>
+                <span id="atlagRating">4.75</span>
+              </td>
             </tr>
           </tbody>
         </table>
-      
+
+      </section>
+
+      <section class="cont listaPop" style="display: none;">
+        <h3 class="my-4">Click to rate!</h3>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Artist</th>
+              <th scope="col">Album</th>
+              <th scope="col">Rating (átlag)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onclick="showReviewModal(3)">
+              <th scope="row">1</th>
+              <td>Michael Jackson</td>
+              <td>Bad</td>
+              <td>
+                <span id="atlagRating">4.75</span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(4)">
+              <th scope="row">2</th>
+              <td>Gorillaz</td>
+              <td>Demon Days</td>
+              <td>
+                <span id="atlagRating">4.75</span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(5)">
+              <th scope="row">3</th>
+              <td>Amy Winehouse</td>
+              <td>Back To Black</td>
+              <td>
+                <span id="atlagRating">4.75</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+      <section class="cont listaHipHop" style="display: none;">
+        <h3 class="my-4">Click to rate!</h3>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Artist</th>
+              <th scope="col">Album</th>
+              <th scope="col">Rating (átlag)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onclick="showReviewModal(6)">
+              <th scope="row">1</th>
+              <td>Outkast</td>
+              <td>Aquemini</td>
+              <td>
+                <span id="atlagRating">4.75</span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(7)">
+              <th scope="row">2</th>
+              <td>Juice WRLD</td>
+              <td>Death Race For Love</td>
+              <td>
+                <span id="atlagRating">4.75</span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(8)">
+              <th scope="row">3</th>
+              <td>Wu-Tang Clan</td>
+              <td>Enter The Wu-Tang (36 Chambers)</td>
+              <td>
+                <span id="atlagRating">4.75</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+      <section class="cont listaEgyeb" style="display: none;">
+        <h3 class="my-4">Click to rate!</h3>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Artist</th>
+              <th scope="col">Album</th>
+              <th scope="col">Rating (átlag)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onclick="showReviewModal(9)">
+              <th scope="row">1</th>
+              <td>Burzum</td>
+              <td>Filosofem</td>
+              <td>
+                <span id="atlagRating">4.75</span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(10)">
+              <th scope="row">2</th>
+              <td>Prodigy</td>
+              <td>The Fat of the Land</td>
+              <td>
+                <span id="atlagRating">4.75</span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(11)">
+              <th scope="row">3</th>
+              <td>Miles Davis</td>
+              <td>Bitches Brew</td>
+              <td>
+                <span id="atlagRating">4.75</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+      <!--ALBUMOK SECTION-->
+      <section class="albumok">
+        <h1 class="my-5">Albumok és vélemények</h1>
+        
       </section>
 
     </div>
   </section>
 
+
   <!--MODAL-->
-  <div class="modal fade" id="reviewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal fade" id="reviewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="reviewModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -104,46 +240,18 @@
         <div class="modal-body">
           <div class="container-fluid">
             <div class="row text-center mb-3">
-              <div class="col-md-4 mb-3 mb-md-0"><img src="" class="img-fluid" id="reviewAlbumCover" alt="album cover"></div>
+              <div class="col-md-4 mb-3 mb-md-0"><img src="" class="img-fluid" id="reviewAlbumCover" alt="album cover"
+                  width="231px" height="231px"></div>
               <div class="col-md-8 mb-3 mb-md-0">
                 <div class="mb-3">
-                  <textarea class="form-control reviewTextArea" id="reviewTextArea" placeholder="Write a review..." style="resize: none;"></textarea>
-                </div>                
+                  <textarea class="form-control reviewTextArea" id="reviewTextArea" placeholder="Write a review..."
+                    style="resize: none;"></textarea>
+                </div>
               </div>
             </div>
             <div class="d-flex justify-content-evenly">
-              <form class="rating">
-                <label>
-                  <input type="radio" name="stars" value="1" />
-                  <span class="icon">★</span>
-                </label>
-                <label>
-                  <input type="radio" name="stars" value="2" />
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                </label>
-                <label>
-                  <input type="radio" name="stars" value="3" />
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>   
-                </label>
-                <label>
-                  <input type="radio" name="stars" value="4" />
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                </label>
-                <label>
-                  <input type="radio" name="stars" value="5" />
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                  <span class="icon">★</span>
-                </label>
-              </form>
+              <label for="rating" class="form-label">Rating</label>
+              <input type="number" placeholder="0-10" min="0" max="10">
             </div>
           </div>
         </div>
@@ -154,7 +262,7 @@
       </div>
     </div>
   </div>
-  
+
   <!--FOOTER-->
   <footer class="mt-auto py-3">
     <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
@@ -181,16 +289,6 @@
 
     window.addEventListener('load', CheckCred);
     SignOutButton.addEventListener('click', Signout);
-
-    function myFunction() {
-      var x = document.querySelector('.listaRock');
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-    }
-
 
   </script>
   <script src="js/script.js"></script>
