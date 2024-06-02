@@ -1,135 +1,181 @@
 <!DOCTYPE html>
 <html lang="hu">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Albumértékelő weboldal</title>
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="./css/impresszum.css">
-  <script src="./js/bootstrap.bundle.js"></script>
-  <script src="js/script.js?v=1.0.0" defer></script>
-  <script src="js/index.js" defer></script>
-</head>
-
-<body>
-  <!--NAVBAR-->
-  <header class="sticky-top">
-    <nav class="navbar navbar-expand-lg bg-dark p-0">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="./index.html"></a>
-        <button class="navbar-toggler ms-auto border-light" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-0">
-            <li class="nav-item">
-              <a class="nav-link" href="./index.html">Főoldal</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./kategoriak.html">Kategóriák</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./profil.html">Profil</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./impresszum.html">Impresszum</a>
-            </li>
-          </ul>
-          <h4 id="greet" class="me-5 mt-2"></h4>
-          <form class="d-flex">
-            <button class="btn btn-outline-success" type="button" id="signoutbutton">Kijelentkezés</button>
-          </form>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albumértékelő weboldal</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/bootstrap.bundle.js"></script>
+    <script src="js/script.js?v=1.0.0" defer></script>
+    <script src="js/index.js" defer></script>
+  </head>
+  <body>
+    <!--NAVBAR-->
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg bg-dark p-0">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.html"></a>
+          <button class="navbar-toggler ms-auto border-light" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-0">
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html">Főoldal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./kategoriak.html">Kategóriák</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./profil.html">Profil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./impresszum.html">Impresszum</a>
+              </li>
+            </ul>
+            <h4 id="greet" class="me-5 mt-2"></h4>
+            <form class="d-flex">
+              <button class="btn btn-outline-success" type="button" id="signoutbutton">Kijelentkezés</button>
+            </form>
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
-  <!--MAIN-->
-  <main>
-    <!--DAILY_ALBUM_REC-->
-    <section class="mt-4">
-      <div class="container-fluid">
-        <h2 class="my-5">A Random 3</h2>
-        <div class="row" id="daily-album-rec"></div>
-      </div>
-    </section>
-    <hr>
-    <!--NEWS-->
-    <section class="news-carousel mt-4">
-      <div class="container">
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner text-center">
-            <div class="carousel-item active" data-bs-interval="5000">
-              <a href="https://youtu.be/75LuLP18jNY" target="_blank"><img src="./media/serj.webp" class="d-block w-50">
-                <p class="news">Új szám: Serj Tankian - "A.F. Day"</p>
-              </a>
+      </nav>
+    </header>
+    <!--MAIN-->
+    <main>
+      <!--DAILY_ALBUM_REC-->
+      <section class="mt-4">
+        <div class="container-fluid">
+          <h2 class="my-5">A Random 3</h2>
+          <div class="row" id="daily-album-rec"></div>
+        </div>
+      </section>
+      <hr>
+      <!--NEWS-->
+      <section class="news-carousel mt-4">
+        <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="card">
+                <div class="img-asd">
+                  <img src="./media/filosofem.jpg" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title 1</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
             </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <a href="https://www.stereogum.com/2263812/tame-impalas-kevin-parker-sells-entire-past-and-future-song-catalog/news/"
-                target="_blank"><img src="./media/impala.webp" class="d-block w-50">
-                <p class="news">Kevin Parker, a Tame Impala énekese eladja egész zenei katalógusukat</p>
-              </a>
+            <div class="carousel-item">
+              <div class="card">
+                <div class="img-asd">
+                  <img src="./media/station.jpg" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title 2</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
             </div>
-            <div class="carousel-item" data-bs-interval="5000">
-              <a href="https://consequence.net/2024/05/childish-gambino-world-tour-atavista/" target="_blank"><img
-                  src="./media/gambino.webp" class="d-block w-50">
-                <p class="news">Childish Gambino világ körüli turnét jelent be</p>
-              </a>
+            <div class="carousel-item">
+              <div class="card">
+                <div class="img-asd">
+                  <img src="./media/redhot.webp" alt="...">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Card title 3</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
-            data-bs-slide="prev">
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
-            data-bs-slide="next">
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-      </div>
-    </section>
-  </main>
-  <!--FOOTER-->
-  <footer class="mt-auto py-3">
-    <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
-    <span>|| Special thank: vehu <span class="heart fw-bold">❤</span></span>
-  </footer>
+        <!--
+        <div class="container">
+          <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner text-center">
+              <div class="carousel-item active" data-bs-interval="5000">
+                <a href="https://youtu.be/75LuLP18jNY" target="_blank"><img src="./media/serj.webp" class="d-block w-50">
+                  <p class="news">Új szám: Serj Tankian - "A.F. Day"</p>
+                </a>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <a href="https://www.stereogum.com/2263812/tame-impalas-kevin-parker-sells-entire-past-and-future-song-catalog/news/"
+                  target="_blank"><img src="./media/impala.webp" class="d-block w-50">
+                  <p class="news">Kevin Parker, a Tame Impala énekese eladja egész zenei katalógusukat</p>
+                </a>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <a href="https://consequence.net/2024/05/childish-gambino-world-tour-atavista/" target="_blank"><img
+                    src="./media/gambino.webp" class="d-block w-50">
+                  <p class="news">Childish Gambino világ körüli turnét jelent be</p>
+                </a>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        -->
+      </section>
+    </main>
+    <!--FOOTER-->
+    <footer class="mt-auto py-3">
+      <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
+      <span>|| Special thank: vehu <span class="heart fw-bold">❤</span></span>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+      let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+      let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
 
-  <script>
-    let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
-    let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
-
-    let MsgHead = document.getElementById('msg');
-    let GreetHead = document.getElementById('greet');
-    let SignOutButton = document.getElementById('signoutbutton');
+      let MsgHead = document.getElementById('msg');
+      let GreetHead = document.getElementById('greet');
+      let SignOutButton = document.getElementById('signoutbutton');
 
 
 
-    let Signout = () => {
-      sessionStorage.removeItem("user-creds");
-      sessionStorage.removeItem("user-info");
-      window.location.href = 'bejelentkezes.html'
-    }
-
-    let CheckCred = () => {
-      if (!sessionStorage.getItem("user-creds"))
+      let Signout = () => {
+        sessionStorage.removeItem("user-creds");
+        sessionStorage.removeItem("user-info");
         window.location.href = 'bejelentkezes.html'
-
-      else {
-        GreetHead.innerText = `Üdvözlégy ${UserInfo.username}!`;
       }
-    }
 
-    window.addEventListener('load', CheckCred);
-    SignOutButton.addEventListener('click', Signout);
+      let CheckCred = () => {
+        if (!sessionStorage.getItem("user-creds"))
+          window.location.href = 'bejelentkezes.html'
 
-  </script>
+        else {
+          GreetHead.innerText = `Üdvözlégy ${UserInfo.username}!`;
+        }
+      }
 
-</body>
+      window.addEventListener('load', CheckCred);
+      SignOutButton.addEventListener('click', Signout);
 
+    </script>
+  </body>
 </html>
