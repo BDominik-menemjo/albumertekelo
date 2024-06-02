@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/impresszum.css">
   <script src="./js/bootstrap.bundle.js"></script>
   <script src="js/script.js?v=1.0.0" defer></script>
+  <script src="js/index.js" defer></script>
 </head>
 
 <body>
@@ -96,6 +97,7 @@
   <!--FOOTER-->
   <footer class="mt-auto py-3">
     <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
+    <span>|| Special thank: vehu <span class="heart fw-bold">❤</span></span>
   </footer>
 
   <script>
@@ -126,78 +128,6 @@
     window.addEventListener('load', CheckCred);
     SignOutButton.addEventListener('click', Signout);
 
-    /*MAIN RANDOM ALBUM*/
-
-    const dailyAlbumRecContainer = document.getElementById('daily-album-rec');
-    const albumData = [
-      {
-        image: './media/station.jpg',
-        title: 'Station to Station',
-        artist: 'David Bowie',
-        spotifyLink: 'https://open.spotify.com/album/0MWrKayUshRuT8maG4ZAOU?si=fILYno_mQDCJ6dseIAXOvw'
-      },
-      {
-        image: './media/Michael_Jackson_-_Bad.png',
-        title: 'Bad',
-        artist: 'Michael Jackson',
-        spotifyLink: 'https://open.spotify.com/album/3Us57CjssWnHjTUIXBuIeH?si=vLBxiKG6SQaz5obR6y4TZw'
-      },
-      {
-        image: './media/Juice_Wrld_-_Legends_Never_Die.png',
-        title: 'Legends Never Die',
-        artist: 'Juice Wrld',
-        spotifyLink: 'https://open.spotify.com/album/6n9DKpOxwifT5hOXtgLZSL?si=H67YroZ-SUSwyG94ZUV21g'
-      },
-      {
-        image: './media/aquemini.jpg',
-        title: 'Aquemini',
-        artist: 'Outkast',
-        spotifyLink: 'https://open.spotify.com/album/5ceB3rxgXqIRpsOvVzTG28?si=OQZhcOa1SzybimQ8YItztQ'
-      },
-      {
-        image: './media/appetite.webp',
-        title: 'Appetite For Destruction',
-        artist: 'Guns N\' Roses',
-        spotifyLink: 'https://open.spotify.com/album/28yHV3Gdg30AiB8h8em1eW'
-      },
-      {
-        image: './media/back_to_black.png',
-        title: 'Back To Black',
-        artist: 'Amy Winehouse',
-        spotifyLink: 'https://open.spotify.com/album/097eYvf9NKjFnv4xA9s2oV'
-      },
-
-      // Add more album data here...
-    ];
-
-    const selectedAlbums = new Set();
-
-    function randomDailyAlbumRec() {
-      const randomAlbums = [];
-      for (let i = 0; i < 3; i++) {
-        let randomAlbum;
-        do {
-          const randomIndex = Math.floor(Math.random() * albumData.length);
-          randomAlbum = albumData[randomIndex];
-        } while (selectedAlbums.has(randomAlbum));
-        selectedAlbums.add(randomAlbum);
-        randomAlbums.push(randomAlbum);
-      }
-
-      dailyAlbumRecContainer.innerHTML = '';
-      randomAlbums.forEach((album) => {
-        const albumHTML = `
-      <div class="col-lg-4 col-md-4 text-center image-container">
-        <img src="${album.image}" alt="${album.title}" title="${album.title}" height="300px" width="300px" class="hover-image meretezes">
-        <p>${album.artist} - ${album.title}</p>
-        <a href="${album.spotifyLink}" target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
-      </div>
-    `;
-        dailyAlbumRecContainer.innerHTML += albumHTML;
-      });
-    }
-
-    window.onload = randomDailyAlbumRec;
   </script>
 
 </body>

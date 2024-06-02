@@ -99,3 +99,14 @@ h2{
     font-size: 170%;
     font-style: normal;
   }
+
+  
+.heart {
+    transition: color 1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+  }
+  
+  .heart:hover {
+    color: red;
+  }
+  
+  

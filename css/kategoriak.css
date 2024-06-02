@@ -1,0 +1,27 @@
+@media (min-width: 768px){
+  .w-md-75{
+    width: 75%!important;
+  }
+}
+
+#reviewComment {
+  word-break: break-all;
+}
+
+.comment{
+  min-height: 75%!important;
+}
+
+@media (max-width: 768px){
+  .comment{
+    min-height: inherit!important;
+  }
+}
+
+.heart {
+  transition: color 1s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+}
+
+.heart:hover {
+  color: red;
+}

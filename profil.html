@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/profil.css">
     <script src="./js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebasejs/10.12.1/firebase.js"></script>
 </head>
 
 <body>
@@ -39,7 +40,7 @@
                     </ul>
                     <form class="d-flex">
                         <button class="btn btn-outline-success" type="button" id="signoutbutton">Kijelentkezés</button>
-                      </form>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -48,46 +49,143 @@
     <section>
         <div class="container-fluid">
             <div class="row m-5 justify-content-start">
-                    <div class="col-lg-4 col-md-4" style="max-width: 275px;">
-                        <img src="https://cibak.blog.hu/media/image/zolee/8bb7eecb8378280a33ef03ff88b0d6b863025.jpg"
-                            alt="Ricsi" class="profile-pic-main">
-                    </div>
-                    <div class="col-lg-4 col-md-4 mt-5">
-                        <h4 id="profilename"></h4>
-                        <h5>Ratings: xyz</h5>
-                    </div>
+                <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                    <img src="./media/cspp.jpg" alt="Ricsi" id="profile-pic-main" class="mb-3">
+                    <h4 class="fw-bold rgb" id="profilename"></h4>
+                    <h5 class="text-danger">Ratings: <span id="ratings-number-profile"></span></h5>
+                </div>
             </div>
+            <div class="row mt-5 justify-content-start">
+                <h2>Vélemények:</h2>
+                <section class="mt-4">
+                        <div id="ratingsContainer">
+
+                        </div>
+                </section>
+            </div>
+        </div>
         </div>
     </section>
     <!--FOOTER-->
     <footer class="mt-auto py-3">
         <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
+        <span>|| Special thank: vehu <span class="heart fw-bold">❤</span></span>
     </footer>
 
-    <script>
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+        import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
+
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAjCWCtTUugbV332yZGIL5bbGAJQ1AW9Gc",
+            authDomain: "albumertekelo-4d94e.firebaseapp.com",
+            projectId: "albumertekelo-4d94e",
+            storageBucket: "albumertekelo-4d94e.appspot.com",
+            messagingSenderId: "948706842482",
+            appId: "1:948706842482:web:b9f9fa75e7258a336dafeb"
+        };
+
+        const app = initializeApp(firebaseConfig)
+        const db = getFirestore();
+
+        /*RATING SZÁMLÁLÓ*/
+        let ratingsNumber = document.getElementById('ratings-number-profile');
+        const ratingsRef = collection(db, 'ratings');
+
         let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
         let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
-    
+        let userName = UserInfo.username;
+        const userRatingsRef = query(ratingsRef, where('userName', '==', userName));
+
+        const querySnapshotUserRatings = await getDocs(userRatingsRef);
+        const querySnapshotAlbums = await getDocs(collection(db, "albums"));
+        const numRatings = querySnapshotUserRatings.size;
+
+        ratingsNumber.innerText = numRatings;
+
+
+        /* salalalaa 
+        const getAlbumReviews = async (userId) => {
+            const querySnapshot = await getDocs(collection(db, "ratings"));
+            const reviews = [];
+
+            querySnapshot.forEach((doc) => {
+                if (doc.data().userId === userId) {
+                    reviews.push({
+                        id: doc.id,
+                        ...doc.data(),
+                    });
+                }
+            });
+
+            return reviews;
+        };
+
+        const userId = JSON.parse(sessionStorage.getItem("user-info")).uid;
+
+const reviews = await getAlbumReviews(userId);*/
+querySnapshotUserRatings.forEach((userRating) => {
+    querySnapshotAlbums.forEach((docAlbum) => {
+        if (userRating.data().userName == userName) {
+            if (userRating.data().albumId == docAlbum.data().albumId) {
+            const reviewHtml = `
+            <div class="container-fluid d-flex justify-content-center my-3">
+                <div class="bg-white p-4 rounded-2 shadow w-md-75 w-100">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                    <img src="${docAlbum.data().albumImage}" alt="album kép" class="img-fluid">
+                    <p>${docAlbum.data().albumArtist} - ${docAlbum.data().albumName}</p>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3 class="m-0 fw-bold" id="reviewUser">${userRating.data().userName}</h3>
+                        <div class="text-end">
+                            <strong>Rating: </strong><span id="reviewRating">${userRating.data().rating}/10</span>
+                        </div>
+                        </div>
+                        <div class="comment">
+                        <h4 id="reviewComment">${userRating.data().reviewText}</h4>
+                        </div>
+                        <div class="timestamp text-end">
+                        <h4 id="reviewComment">${userRating.data().timestamp}</h4>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            `;
+
+            document.getElementById("ratingsContainer").innerHTML += reviewHtml;
+        }
+        }})
+        });
+
+        /*KIJELENTKEZÉS*/
+
         let SignOutButton = document.getElementById('signoutbutton');
         let Profile = document.getElementById('profilename');
-    
+
         let Signout = () => {
-          sessionStorage.removeItem("user-creds");
-          sessionStorage.removeItem("user-info");
-          window.location.href = 'bejelentkezes.html'
-        }
-    
-        let CheckCred = () => {
-          if (!sessionStorage.getItem("user-creds"))
+            sessionStorage.removeItem("user-creds");
+            sessionStorage.removeItem("user-info");
             window.location.href = 'bejelentkezes.html'
         }
-    
+
+        let CheckCred = () => {
+            if (!sessionStorage.getItem("user-creds"))
+                window.location.href = 'bejelentkezes.html'
+        }
+
         window.addEventListener('load', CheckCred);
         SignOutButton.addEventListener('click', Signout);
 
         Profile.innerText = `${UserInfo.username}`;
 
-      </script>
+    </script>
 
 </body>
 
