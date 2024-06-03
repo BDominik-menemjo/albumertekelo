@@ -52,6 +52,18 @@
     min-height: 75%!important;
   }
   
+  @media (max-width: 1200px){
+    .comment{
+      min-height: 70%!important;
+    }
+  }
+
+  @media (max-width: 1000px){
+    .comment{
+      min-height: 65%!important;
+    }
+  }
+
   @media (max-width: 768px){
     .comment{
       min-height: inherit!important;

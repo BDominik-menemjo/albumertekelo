@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/profil.css">
     <script src="./js/bootstrap.bundle.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebasejs/10.12.1/firebase.js"></script>
 </head>
 
 <body>
@@ -58,9 +57,9 @@
             <div class="row mt-5 justify-content-start">
                 <h2>Vélemények:</h2>
                 <section class="mt-4">
-                        <div id="ratingsContainer">
+                    <div id="ratingsContainer">
 
-                        </div>
+                    </div>
                 </section>
             </div>
         </div>
@@ -76,9 +75,7 @@
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
         import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
-        import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
-
-
+        import { getFirestore, collection, query, where, orderBy, getDocs, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyAjCWCtTUugbV332yZGIL5bbGAJQ1AW9Gc",
@@ -101,68 +98,81 @@
         let userName = UserInfo.username;
         const userRatingsRef = query(ratingsRef, where('userName', '==', userName));
 
-        const querySnapshotUserRatings = await getDocs(userRatingsRef);
+        const sortedUserRatingsRef = query(userRatingsRef, orderBy("timestamp", "desc"));
+
+        const querySnapshotUserRatings = await getDocs(sortedUserRatingsRef);
         const querySnapshotAlbums = await getDocs(collection(db, "albums"));
         const numRatings = querySnapshotUserRatings.size;
 
         ratingsNumber.innerText = numRatings;
 
+        /*REVIEW SHOW*/
 
-        /* salalalaa 
-        const getAlbumReviews = async (userId) => {
-            const querySnapshot = await getDocs(collection(db, "ratings"));
-            const reviews = [];
+        querySnapshotUserRatings.forEach((userRating) => {
+            querySnapshotAlbums.forEach((docAlbum) => {
+                if (userRating.data().userName == userName) {
+                    if (userRating.data().albumId == docAlbum.data().albumId) {
+                        console.log(userRating.data())
+                        const reviewHtml = `
+                        <div class="container-fluid d-flex justify-content-center my-3">
+                            <div class="bg-white p-4 rounded-2 shadow w-md-75 w-100">
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                <img src="${docAlbum.data().albumImage}" alt="album kép" class="img-fluid">
+                                <p>${docAlbum.data().albumArtist} - ${docAlbum.data().albumName}</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h3 class="m-0 fw-bold" id="reviewUser">${userRating.data().userName}</h3>
+                                    <div class="text-end">
+                                        <strong>Értékelés: </strong><span id="reviewRating">${userRating.data().rating}/10</span>
+                                    </div>
+                                    </div>
+                                    <div class="comment">
+                                    <h4 id="reviewComment">${userRating.data().reviewText}</h4>
+                                    </div>
+                                    <div class="timestamp d-flex justify-content-between">
+                                    <button type="button" class="btn btn-danger" id="deleteButton">Törlés</button>
+                                    <span id="timestamp">${userRating.data().timestamp}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        `;
 
-            querySnapshot.forEach((doc) => {
-                if (doc.data().userId === userId) {
-                    reviews.push({
-                        id: doc.id,
-                        ...doc.data(),
+                        document.getElementById("ratingsContainer").innerHTML += reviewHtml;
+                    }
+
+                    /*TÖRLÉS GOMB*/
+
+                    const deleteButtons = document.querySelectorAll('#deleteButton');
+
+                    deleteButtons.forEach((button) => {
+                        button.addEventListener('click', async (event) => {
+                            const reviewContainer = event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+
+                            const reviewUser = reviewContainer.querySelector('#reviewUser').innerText;
+                            const reviewRating = reviewContainer.querySelector('#reviewRating').innerText;
+                            const reviewComment = reviewContainer.querySelector('#reviewComment').innerText;
+
+                            const querySnapshotUserRatings = await getDocs(userRatingsRef);
+                            let reviewDoc = null;
+                            querySnapshotUserRatings.forEach((doc) => {
+                                if (doc.data().userName === reviewUser && doc.data().rating === parseInt(reviewRating) && doc.data().reviewText === reviewComment) {
+                                    reviewDoc = doc;
+                                }
+                            });
+
+                            if (reviewDoc) {
+                                await deleteDoc(doc(db, "ratings", reviewDoc.id));
+                                reviewContainer.remove();
+                            }
+                        });
                     });
                 }
-            });
-
-            return reviews;
-        };
-
-        const userId = JSON.parse(sessionStorage.getItem("user-info")).uid;
-
-const reviews = await getAlbumReviews(userId);*/
-querySnapshotUserRatings.forEach((userRating) => {
-    querySnapshotAlbums.forEach((docAlbum) => {
-        if (userRating.data().userName == userName) {
-            if (userRating.data().albumId == docAlbum.data().albumId) {
-            const reviewHtml = `
-            <div class="container-fluid d-flex justify-content-center my-3">
-                <div class="bg-white p-4 rounded-2 shadow w-md-75 w-100">
-                <div class="row">
-                    <div class="col-md-4 text-center">
-                    <img src="${docAlbum.data().albumImage}" alt="album kép" class="img-fluid">
-                    <p>${docAlbum.data().albumArtist} - ${docAlbum.data().albumName}</p>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h3 class="m-0 fw-bold" id="reviewUser">${userRating.data().userName}</h3>
-                        <div class="text-end">
-                            <strong>Rating: </strong><span id="reviewRating">${userRating.data().rating}/10</span>
-                        </div>
-                        </div>
-                        <div class="comment">
-                        <h4 id="reviewComment">${userRating.data().reviewText}</h4>
-                        </div>
-                        <div class="timestamp text-end">
-                        <h4 id="reviewComment">${userRating.data().timestamp}</h4>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-            `;
-
-            document.getElementById("ratingsContainer").innerHTML += reviewHtml;
-        }
-        }})
-        });
+            })
+        })
 
         /*KIJELENTKEZÉS*/
 
@@ -186,7 +196,6 @@ querySnapshotUserRatings.forEach((userRating) => {
         Profile.innerText = `${UserInfo.username}`;
 
     </script>
-
 </body>
 
 </html>
