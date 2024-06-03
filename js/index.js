@@ -115,11 +115,34 @@ const dailyAlbumRecContainer = document.getElementById('daily-album-rec');
 
     window.onload = randomDailyAlbumRec;
 
-var carouselWidth = $('.carousel-inner').scrollWidth;
-var cardWidth=$('.carousel-item').width();
-var scrollPos=0;
-$('.carousel-control-next').on('click', function(){
-  console.log('next');
-  scrollPos=scrollPos+cardWidth;
-  $('.carousel-inner').animate({scrollLeft:scrollPos},600);
-})
+const newsCarousel = document.querySelector('#carouselExample')
+
+
+
+if(window.matchMedia("(min-width:576px)").matches){
+  const carousel = new bootstrap.Carousel(carouselExample, {
+    interval: false
+  });
+
+  var carouselWidth = $('.carousel-inner')[0].scrollWidth;
+  var cardWidth=$('.carousel-item').width();
+  var scrollPos=0;
+  
+  $('.carousel-control-next').on('click', function(){
+    if(scrollPos<(carouselWidth-(cardWidth*4))){
+      console.log('next');
+      scrollPos=scrollPos+cardWidth;
+      $('.carousel-inner').animate({scrollLeft:scrollPos},600);
+    }
+  });
+  
+  $('.carousel-control-prev').on('click', function(){
+    if(scrollPos>0){
+      console.log('prev');
+      scrollPos=scrollPos-cardWidth;
+      $('.carousel-inner').animate({scrollLeft:scrollPos},600);
+    }
+  });
+}else{
+  $(carouselExample).addClass('slide');
+}
