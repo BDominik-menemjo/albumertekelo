@@ -52,10 +52,14 @@
     <div class="container-fluid">
       <h2 class="my-5">Válassz zsánert és értékelj!</h2>
       <div class="d-flex flex-sm-row flex-column justify-content-evenly text-center my-5">
-        <button type="button" class="btn btn-primary px-5 py-2 my-3" id="rockButton" onclick="showListaRock()">Rock</button>
-        <button type="button" class="btn btn-success px-5 py-2 my-3" id="popButton" onclick="showListaPop()">Pop</button>
-        <button type="button" class="btn btn-secondary px-5 py-2 my-3" id="hipHopButton" onclick="showListaHipHop()">Hip-Hop</button>
-        <button type="button" class="btn btn-danger px-5 py-2 my-3" id="egyebButton" onclick="showListaEgyeb()">Egyéb</button>
+        <button type="button" class="btn btn-primary px-5 py-2 my-3" id="rockButton"
+          onclick="showListaRock()">Rock</button>
+        <button type="button" class="btn btn-success px-5 py-2 my-3" id="popButton"
+          onclick="showListaPop()">Pop</button>
+        <button type="button" class="btn btn-secondary px-5 py-2 my-3" id="hipHopButton"
+          onclick="showListaHipHop()">Hip-Hop</button>
+        <button type="button" class="btn btn-danger px-5 py-2 my-3" id="egyebButton"
+          onclick="showListaEgyeb()">Egyéb</button>
       </div>
 
       <section class="cont listaRock" style="display: none;">
@@ -75,7 +79,7 @@
               <td>Red Hot Chili Peppers</td>
               <td>Blood Sugar Sex Magik</td>
               <td>
-                <span id="atlagRating">4.75</span>
+                <span id="atlagRating0">4.75</span>
               </td>
             </tr>
             <tr onclick="showReviewModal(1)" id="1">
@@ -83,7 +87,7 @@
               <td>Guns N' Roses</td>
               <td>Appetite For Destruction</td>
               <td>
-                <span id="atlagRating">4.75</span>
+                <span id="atlagRating1">4.75</span>
               </td>
             </tr>
             <tr onclick="showReviewModal(2)" id="2">
@@ -91,7 +95,7 @@
               <td>David Bowie</td>
               <td>Station to Station</td>
               <td>
-                <span id="atlagRating">4.75</span>
+                <span id="atlagRating2">4.75</span>
               </td>
             </tr>
           </tbody>
@@ -116,7 +120,7 @@
               <td>Michael Jackson</td>
               <td>Bad</td>
               <td>
-                <span id="atlagRating">4.75</span>
+                <span id="atlagRating3">4.75</span>
               </td>
             </tr>
             <tr onclick="showReviewModal(4)" id="4">
@@ -124,7 +128,7 @@
               <td>Gorillaz</td>
               <td>Demon Days</td>
               <td>
-                <span id="atlagRating">4.75</span>
+                <span id="atlagRating4">4.75</span>
               </td>
             </tr>
             <tr onclick="showReviewModal(5)" id="5">
@@ -132,7 +136,7 @@
               <td>Amy Winehouse</td>
               <td>Back To Black</td>
               <td>
-                <span id="atlagRating">4.75</span>
+                <span id="atlagRating5">4.75</span>
               </td>
             </tr>
           </tbody>
@@ -157,7 +161,7 @@
               <td>Outkast</td>
               <td>Aquemini</td>
               <td>
-                <span id="atlagRating">4.75</span>
+                <span id="atlagRating6">4.75</span>
               </td>
             </tr>
             <tr onclick="showReviewModal(7)" id="7">
@@ -165,7 +169,7 @@
               <td>Juice WRLD</td>
               <td>Death Race For Love</td>
               <td>
-                <span id="atlagRating">4.75</span>
+                <span id="atlagRating7">4.75</span>
               </td>
             </tr>
             <tr onclick="showReviewModal(8)" id="8">
@@ -173,7 +177,7 @@
               <td>Wu-Tang Clan</td>
               <td>Enter The Wu-Tang (36 Chambers)</td>
               <td>
-                <span id="atlagRating">4.75</span>
+                <span id="atlagRating8">4.75</span>
               </td>
             </tr>
           </tbody>
@@ -198,7 +202,7 @@
               <td>Burzum</td>
               <td>Filosofem</td>
               <td>
-                <span id="atlagRating">4.75</span>
+                <span id="atlagRating9">4.75</span>
               </td>
             </tr>
             <tr onclick="showReviewModal(10)" id="10">
@@ -206,7 +210,7 @@
               <td>The Prodigy</td>
               <td>The Fat of the Land</td>
               <td>
-                <span id="atlagRating">4.75</span>
+                <span id="atlagRating10">4.75</span>
               </td>
             </tr>
             <tr onclick="showReviewModal(11)" id="11">
@@ -214,7 +218,7 @@
               <td>Miles Davis</td>
               <td>Bitches Brew</td>
               <td>
-                <span id="atlagRating">4.75</span>
+                <span id="atlagRating11">4.75</span>
               </td>
             </tr>
           </tbody>
@@ -297,33 +301,52 @@
     SignOutButton.addEventListener('click', Signout);
 
   </script>
-  
+
   <script src="js/script.js"></script>
-  
+
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
     import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
-    import { getFirestore, addDoc, collection, getDocs, orderBy, query} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
-    
+    import { getFirestore, addDoc, collection, getDocs, orderBy, query } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
+
     const firebaseConfig = {
-        apiKey: "AIzaSyAjCWCtTUugbV332yZGIL5bbGAJQ1AW9Gc",
-        authDomain: "albumertekelo-4d94e.firebaseapp.com",
-        projectId: "albumertekelo-4d94e",
-        storageBucket: "albumertekelo-4d94e.appspot.com",
-        messagingSenderId: "948706842482",
-        appId: "1:948706842482:web:b9f9fa75e7258a336dafeb"
-      };
+      apiKey: "AIzaSyAjCWCtTUugbV332yZGIL5bbGAJQ1AW9Gc",
+      authDomain: "albumertekelo-4d94e.firebaseapp.com",
+      projectId: "albumertekelo-4d94e",
+      storageBucket: "albumertekelo-4d94e.appspot.com",
+      messagingSenderId: "948706842482",
+      appId: "1:948706842482:web:b9f9fa75e7258a336dafeb"
+    };
 
-      const app = initializeApp(firebaseConfig)
-      const db = getFirestore();
+    const app = initializeApp(firebaseConfig)
+    const db = getFirestore();
 
+    /*
+    async function getAverageRating(albumId) {
+      const ratingsRef = collection(db, "ratings");
+      const query = query(ratingsRef, where("albumId", "==", albumId));
+      const querySnapshot = await getDocs(query);
 
-      //összes rating
-      const querySnapshotRatings = await getDocs(collection(db, "ratings"));
-      const querySnapshotAlbums = await getDocs(collection(db, "albums"));
-      querySnapshotRatings.forEach((docRating) => {
-        querySnapshotAlbums.forEach((docAlbum) => {
-          if (docRating.data().albumId == docAlbum.data().albumId) {
+      let totalRating = 0;
+      let numRatings = 0;
+
+      querySnapshot.forEach((doc) => {
+        totalRating += doc.data().rating;
+        numRatings++;
+      });
+
+      const averageRating = totalRating / numRatings;
+
+      return averageRating;
+    }
+    */
+
+    //összes rating
+    const querySnapshotRatings = await getDocs(collection(db, "ratings"));
+    const querySnapshotAlbums = await getDocs(collection(db, "albums"));
+    querySnapshotRatings.forEach((docRating) => {
+      querySnapshotAlbums.forEach((docAlbum) => {
+        if (docRating.data().albumId == docAlbum.data().albumId) {
           const ratinghtml = `
           <div class="container-fluid d-flex justify-content-center my-3">
             <div class="bg-white p-4 rounded-2 shadow w-md-75 w-100">
@@ -350,30 +373,32 @@
             </div>
           </div>`;
           document.getElementById("ratingsContainer").innerHTML += ratinghtml;
-          }})
-        });
-    
+        }
+      })
+    });
 
-document.getElementById('submitReviewBtn').addEventListener('click', function (e) {
+
+    document.getElementById('submitReviewBtn').addEventListener('click', function (e) {
       e.preventDefault();
+
 
 
 
       const ratingsCollection = collection(db, "ratings");
 
       const currentdate = new Date();
-      
+
       let rating = "(nincs értékelés)"
-      if(document.getElementById("ratingNumber").value == ""){
+      if (document.getElementById("ratingNumber").value == "") {
         rating = "(nincs értékelés)"
-      }else{
+      } else {
         rating = document.getElementById("ratingNumber").value
       }
 
       let reviewText = "(nincs leírás)"
-      if(document.getElementById("reviewText").value == ""){
+      if (document.getElementById("reviewText").value == "") {
         reviewText = "(nincs leírás)"
-      }else{
+      } else {
         reviewText = document.getElementById("reviewText").value
       }
 
@@ -382,11 +407,11 @@ document.getElementById('submitReviewBtn').addEventListener('click', function (e
         rating: rating,
         reviewText: reviewText,
         timestamp: currentdate.getFullYear() + "."
-                  + (currentdate.getMonth()+1)  + "." 
-                  + currentdate.getDate() + ". "  
-                  + currentdate.getHours() + ":"  
-                  + currentdate.getMinutes() + ":" 
-                  + currentdate.getSeconds(),
+          + (currentdate.getMonth() + 1) + "."
+          + currentdate.getDate() + ". "
+          + currentdate.getHours() + ":"
+          + currentdate.getMinutes() + ":"
+          + currentdate.getSeconds(),
         userName: JSON.parse(sessionStorage.getItem("user-info")).username
       };
       addDoc(ratingsCollection, ratingData)
@@ -396,9 +421,7 @@ document.getElementById('submitReviewBtn').addEventListener('click', function (e
         .catch((error) => {
           console.error("Error adding document: ", error);
         });
-      });
-
-
+    });
 
   </script>
 </body>
