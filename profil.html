@@ -1,201 +1,197 @@
 <!DOCTYPE html>
 <html lang="hu">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albumértékelő weboldal</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/profil.css">
-    <script src="./js/bootstrap.bundle.js"></script>
-</head>
-
-<body>
-    <!--NAVBAR-->
-    <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg bg-dark p-0">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="./index.html"></a>
-                <button class="navbar-toggler ms-auto border-light" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Főoldal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./kategoriak.html">Kategóriák</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./profil.html">Profil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./impresszum.html">Impresszum</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <button class="btn btn-outline-success" type="button" id="signoutbutton">Kijelentkezés</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!--MAIN-->
-    <section>
-        <div class="container-fluid">
-            <div class="row m-5 justify-content-start">
-                <div class="col-12 d-flex flex-column justify-content-center align-items-center">
-                    <img src="./media/cspp.jpg" alt="Ricsi" id="profile-pic-main" class="mb-3">
-                    <h4 class="fw-bold rgb" id="profilename"></h4>
-                    <h5 class="text-danger">Ratings: <span id="ratings-number-profile"></span></h5>
-                </div>
-            </div>
-            <div class="row mt-5 justify-content-start">
-                <h2>Vélemények:</h2>
-                <section class="mt-4">
-                    <div id="ratingsContainer">
-
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Albumértékelő weboldal</title>
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/profil.css">
+        <script src="./js/bootstrap.bundle.js"></script>
+    </head>
+    <body>
+        <!--NAVBAR-->
+        <header class="sticky-top">
+            <nav class="navbar navbar-expand-lg bg-dark p-0">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="./index.html"><img src="./media/icon.png" alt="Bakelit ikon" title="Bakelit ikon" width="70" height="55" class="d-inline-block align-text-top"></a>
+                    <button class="navbar-toggler ms-auto border-light" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./index.html">Főoldal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./kategoriak.html">Kategóriák</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./profil.html">Profil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./impresszum.html">Impresszum</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <button class="btn btn-outline-success" type="button" id="signoutbutton">Kijelentkezés</button>
+                        </form>
                     </div>
-                </section>
-            </div>
-        </div>
-        </div>
-    </section>
-    <!--FOOTER-->
-    <footer class="mt-auto py-3">
-        <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
-        <span>|| Special thank: vehu <span class="heart fw-bold">❤</span></span>
-    </footer>
+                </div>
+            </nav>
+        </header>
+        <!--MAIN-->
+        <section>
+            <div class="container-fluid">
+                <div class="row m-5 justify-content-start">
+                    <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                        <img src="./media/cspp.jpg" alt="Ricsi" id="profile-pic-main" class="mb-3">
+                        <h4 class="fw-bold rgb" id="profilename"></h4>
+                        <h5 class="text-danger">Ratings: <span id="ratings-number-profile"></span></h5>
+                    </div>
+                </div>
+                <div class="row mt-5 justify-content-start">
+                    <h2>Vélemények:</h2>
+                    <section class="mt-4">
+                        <div id="ratingsContainer">
 
-    <script type="module">
-
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-        import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
-        import { getFirestore, collection, query, where, orderBy, getDocs, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyAjCWCtTUugbV332yZGIL5bbGAJQ1AW9Gc",
-            authDomain: "albumertekelo-4d94e.firebaseapp.com",
-            projectId: "albumertekelo-4d94e",
-            storageBucket: "albumertekelo-4d94e.appspot.com",
-            messagingSenderId: "948706842482",
-            appId: "1:948706842482:web:b9f9fa75e7258a336dafeb"
-        };
-
-        const app = initializeApp(firebaseConfig)
-        const db = getFirestore();
-
-        /*RATING SZÁMLÁLÓ*/
-        let ratingsNumber = document.getElementById('ratings-number-profile');
-        const ratingsRef = collection(db, 'ratings');
-
-        let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
-        let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
-        let userName = UserInfo.username;
-        const userRatingsRef = query(ratingsRef, where('userName', '==', userName));
-
-        const sortedUserRatingsRef = query(userRatingsRef, orderBy("timestamp", "desc"));
-
-        const querySnapshotUserRatings = await getDocs(sortedUserRatingsRef);
-        const querySnapshotAlbums = await getDocs(collection(db, "albums"));
-        const numRatings = querySnapshotUserRatings.size;
-
-        ratingsNumber.innerText = numRatings;
-
-        /*REVIEW SHOW*/
-
-        querySnapshotUserRatings.forEach((userRating) => {
-            querySnapshotAlbums.forEach((docAlbum) => {
-                if (userRating.data().userName == userName) {
-                    if (userRating.data().albumId == docAlbum.data().albumId) {
-                        console.log(userRating.data())
-                        const reviewHtml = `
-                        <div class="container-fluid d-flex justify-content-center my-3">
-                            <div class="bg-white p-4 rounded-2 shadow w-md-75 w-100">
-                            <div class="row">
-                                <div class="col-md-4 text-center">
-                                <img src="${docAlbum.data().albumImage}" alt="album kép" class="img-fluid">
-                                <p>${docAlbum.data().albumArtist} - ${docAlbum.data().albumName}</p>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h3 class="m-0 fw-bold" id="reviewUser">${userRating.data().userName}</h3>
-                                    <div class="text-end">
-                                        <strong>Értékelés: </strong><span id="reviewRating">${userRating.data().rating}/10</span>
-                                    </div>
-                                    </div>
-                                    <div class="comment">
-                                    <h4 id="reviewComment">${userRating.data().reviewText}</h4>
-                                    </div>
-                                    <div class="timestamp d-flex justify-content-between">
-                                    <button type="button" class="btn btn-danger" id="deleteButton">Törlés</button>
-                                    <span id="timestamp">${userRating.data().timestamp}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
                         </div>
-                        `;
+                    </section>
+                </div>
+            </div>
+            </div>
+        </section>
+        <!--FOOTER-->
+        <footer class="mt-auto py-3">
+            <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
+            <span>|| Special thank: vehu <span class="heart fw-bold">❤</span></span>
+        </footer>
 
-                        document.getElementById("ratingsContainer").innerHTML += reviewHtml;
-                    }
+        <script type="module">
 
-                    /*TÖRLÉS GOMB*/
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+            import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+            import { getFirestore, collection, query, where, orderBy, getDocs, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
 
-                    const deleteButtons = document.querySelectorAll('#deleteButton');
+            const firebaseConfig = {
+                apiKey: "AIzaSyAjCWCtTUugbV332yZGIL5bbGAJQ1AW9Gc",
+                authDomain: "albumertekelo-4d94e.firebaseapp.com",
+                projectId: "albumertekelo-4d94e",
+                storageBucket: "albumertekelo-4d94e.appspot.com",
+                messagingSenderId: "948706842482",
+                appId: "1:948706842482:web:b9f9fa75e7258a336dafeb"
+            };
 
-                    deleteButtons.forEach((button) => {
-                        button.addEventListener('click', async (event) => {
-                            const reviewContainer = event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+            const app = initializeApp(firebaseConfig)
+            const db = getFirestore();
 
-                            const reviewUser = reviewContainer.querySelector('#reviewUser').innerText;
-                            const reviewRating = reviewContainer.querySelector('#reviewRating').innerText;
-                            const reviewComment = reviewContainer.querySelector('#reviewComment').innerText;
+            /*RATING SZÁMLÁLÓ*/
+            let ratingsNumber = document.getElementById('ratings-number-profile');
+            const ratingsRef = collection(db, 'ratings');
 
-                            const querySnapshotUserRatings = await getDocs(userRatingsRef);
-                            let reviewDoc = null;
-                            querySnapshotUserRatings.forEach((doc) => {
-                                if (doc.data().userName === reviewUser && doc.data().rating === parseInt(reviewRating) && doc.data().reviewText === reviewComment) {
-                                    reviewDoc = doc;
+            let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+            let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+            let userName = UserInfo.username;
+            const userRatingsRef = query(ratingsRef, where('userName', '==', userName));
+
+            const sortedUserRatingsRef = query(userRatingsRef, orderBy("timestamp", "desc"));
+
+            const querySnapshotUserRatings = await getDocs(sortedUserRatingsRef);
+            const querySnapshotAlbums = await getDocs(collection(db, "albums"));
+            const numRatings = querySnapshotUserRatings.size;
+
+            ratingsNumber.innerText = numRatings;
+
+            /*REVIEW SHOW*/
+
+            querySnapshotUserRatings.forEach((userRating) => {
+                querySnapshotAlbums.forEach((docAlbum) => {
+                    if (userRating.data().userName == userName) {
+                        if (userRating.data().albumId == docAlbum.data().albumId) {
+                            console.log(userRating.data())
+                            const reviewHtml = `
+                            <div class="container-fluid d-flex justify-content-center my-3">
+                                <div class="bg-white p-4 rounded-2 shadow w-md-75 w-100">
+                                <div class="row">
+                                    <div class="col-md-4 text-center">
+                                    <img src="${docAlbum.data().albumImage}" alt="album kép" class="img-fluid">
+                                    <p>${docAlbum.data().albumArtist} - ${docAlbum.data().albumName}</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h3 class="m-0 fw-bold" id="reviewUser">${userRating.data().userName}</h3>
+                                        <div class="text-end">
+                                            <strong>Értékelés: </strong><span id="reviewRating">${userRating.data().rating}/10</span>
+                                        </div>
+                                        </div>
+                                        <div class="comment">
+                                        <h4 id="reviewComment">${userRating.data().reviewText}</h4>
+                                        </div>
+                                        <div class="timestamp d-flex justify-content-between">
+                                        <button type="button" class="btn btn-danger" id="deleteButton">Törlés</button>
+                                        <span id="timestamp">${userRating.data().timestamp}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            `;
+
+                            document.getElementById("ratingsContainer").innerHTML += reviewHtml;
+                        }
+
+                        /*TÖRLÉS GOMB*/
+
+                        const deleteButtons = document.querySelectorAll('#deleteButton');
+
+                        deleteButtons.forEach((button) => {
+                            button.addEventListener('click', async (event) => {
+                                const reviewContainer = event.target.parentElement.parentElement.parentElement.parentElement.parentElement;
+
+                                const reviewUser = reviewContainer.querySelector('#reviewUser').innerText;
+                                const reviewRating = reviewContainer.querySelector('#reviewRating').innerText;
+                                const reviewComment = reviewContainer.querySelector('#reviewComment').innerText;
+
+                                const querySnapshotUserRatings = await getDocs(userRatingsRef);
+                                let reviewDoc = null;
+                                querySnapshotUserRatings.forEach((doc) => {
+                                    if (doc.data().userName === reviewUser && doc.data().rating === parseInt(reviewRating) && doc.data().reviewText === reviewComment) {
+                                        reviewDoc = doc;
+                                    }
+                                });
+
+                                if (reviewDoc) {
+                                    await deleteDoc(doc(db, "ratings", reviewDoc.id));
+                                    reviewContainer.remove();
                                 }
                             });
-
-                            if (reviewDoc) {
-                                await deleteDoc(doc(db, "ratings", reviewDoc.id));
-                                reviewContainer.remove();
-                            }
                         });
-                    });
-                }
+                    }
+                })
             })
-        })
 
-        /*KIJELENTKEZÉS*/
+            /*KIJELENTKEZÉS*/
 
-        let SignOutButton = document.getElementById('signoutbutton');
-        let Profile = document.getElementById('profilename');
+            let SignOutButton = document.getElementById('signoutbutton');
+            let Profile = document.getElementById('profilename');
 
-        let Signout = () => {
-            sessionStorage.removeItem("user-creds");
-            sessionStorage.removeItem("user-info");
-            window.location.href = 'bejelentkezes.html'
-        }
-
-        let CheckCred = () => {
-            if (!sessionStorage.getItem("user-creds"))
+            let Signout = () => {
+                sessionStorage.removeItem("user-creds");
+                sessionStorage.removeItem("user-info");
                 window.location.href = 'bejelentkezes.html'
-        }
+            }
 
-        window.addEventListener('load', CheckCred);
-        SignOutButton.addEventListener('click', Signout);
+            let CheckCred = () => {
+                if (!sessionStorage.getItem("user-creds"))
+                    window.location.href = 'bejelentkezes.html'
+            }
 
-        Profile.innerText = `${UserInfo.username}`;
+            window.addEventListener('load', CheckCred);
+            SignOutButton.addEventListener('click', Signout);
 
-    </script>
-</body>
-
+            Profile.innerText = `${UserInfo.username}`;
+        </script>
+    </body>
 </html>

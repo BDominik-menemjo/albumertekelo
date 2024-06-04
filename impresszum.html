@@ -1,307 +1,286 @@
 <!DOCTYPE html>
 <html lang="hu">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Albumértékelő weboldal</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
-  </style>
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="./css/impresszum.css">
-  <link rel="stylesheet" href="./css/index.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
-  <script src="./js/bootstrap.bundle.js"></script>
-</head>
-
-<body>
-  <!--NAVBAR-->
-  <header class="sticky-top">
-    <nav class="navbar navbar-expand-lg bg-dark p-0">
-      <div class="container-fluid p-1">
-        <a class="navbar-brand" href="./index.html"></a>
-        <button class="navbar-toggler ms-auto border-light" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-0">
-            <li class="nav-item">
-              <a class="nav-link" href="./index.html">Főoldal</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./kategoriak.html">Kategóriák</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./profil.html">Profil</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./impresszum.html">Impresszum</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <button class="btn btn-outline-success" type="button" id="signoutbutton">Kijelentkezés</button>
-          </form>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albumértékelő weboldal</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
+    </style>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/impresszum.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
+    <script src="./js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <!--NAVBAR-->
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg bg-dark p-0">
+        <div class="container-fluid p-1">
+          <a class="navbar-brand" href="./index.html"><img src="./media/icon.png" alt="Bakelit ikon" title="Bakelit ikon" width="70" height="55" class="d-inline-block align-text-top"></a>
+          <button class="navbar-toggler ms-auto border-light" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-0">
+              <li class="nav-item">
+                <a class="nav-link" href="./index.html">Főoldal</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./kategoriak.html">Kategóriák</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./profil.html">Profil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./impresszum.html">Impresszum</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <button class="btn btn-outline-success" type="button" id="signoutbutton">Kijelentkezés</button>
+            </form>
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
-  <!--MAIN-->
-  <section>
-    <div class="container-fluid">
-      <div class="row mt-5">
-        <div class="col-lg-6 col-md-6 d-flex justify-content-center">
-          <img src="./media/kepes1.jpg" alt="Music Disc" id="music_disc">
-        </div>
-        <div class="col-lg-6 col-md-6 text-center m-auto">
-          <h2 class="jaro-nev fadee"><i>PM & BDP & CsP Record Inc.</i></h2>
+      </nav>
+    </header>
+    <!--MAIN-->
+    <section>
+      <div class="container-fluid">
+        <div class="row mt-5">
+          <div class="col-lg-6 col-md-6 d-flex justify-content-center">
+            <img src="./media/kepes1.jpg" alt="Music Disc" id="music_disc">
+          </div>
+          <div class="col-lg-6 col-md-6 text-center m-auto">
+            <h2 class="jaro-nev fadee"><i>PM & BDP & CsP Record Inc.</i></h2>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="fadee">
+              <h3>Történetünk röviden:</h3>
+              <p>Oldalunk egy szenvedélyes zenei közösség, amelyet néhány lelkes zenekedvelő hozott létre. Célunk, hogy összehozzuk a zenészeket és a hallgatókat, és egy helyet teremtsünk, ahol az albumok mélyreható értékeléseket kapnak. <br>
+
+                Minden azzal kezdődött, hogy néhány barátunk egy hosszú hétvégi zenei beszélgetés során rájöttünk, mennyire hiányzik egy olyan platform, ahol a zenék nem csak felületesen kapnak értékelést. Így született meg az ötlet: létrehozni egy weboldalt, ahol a zenék, albumok és előadók méltó figyelmet kapnak.
+              </p>
+              </div>
+            </div>
+          </div>
+    </section>
+    <hr>
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4 col-12 d-flex justify-content-center">
+            <img src="./media/marcos.jpg" class="img-fluid kerekites" alt="PFP" id="pfp">
+          </div>
+          <div class="col-md-8 col-12 text-left m-auto">
+            <h3 class="jaro-nev fadee">Pásztor Marcell</h3>
+            <h3 class="mt-3 jacquard-12-regular fadee">Certified Lover Boy</h3>
+            <div class="fadee">
+              <h3 class="mt-5">Bemutatkozás:</h3>
+              <p>Szia! Marci vagyok, egy álomkövető, aki a zene varázslatos világában találta meg a boldogságot. Születésem óta a dallamok és ritmusok kísérnek, mint egy hűsítő szellő a forró nyári napokon. <br>
+              Kedvenc műfajaim: Old-School Hip-Hop, Rock, Dance Rock, Funk, Jazz, Punk, Techno, és minden más. <br>
+              Basszusgitáros és zeneszerző is vagyok.
+              </p>
+            </div>
+          </div>
         </div>
         <div class="row">
-          <div class="col-lg-12 col-md-12">
+          <div class="col text-left">
             <div class="fadee">
-            <h3>Történetünk röviden:</h3>
-
-            <p>Oldalunk egy szenvedélyes zenei közösség, amelyet néhány lelkes zenekedvelő hozott létre. Célunk, hogy összehozzuk a zenészeket és a hallgatókat, és egy helyet teremtsünk, ahol az albumok mélyreható értékeléseket kapnak. <br>
-
-              Minden azzal kezdődött, hogy néhány barátunk egy hosszú hétvégi zenei beszélgetés során rájöttünk, mennyire hiányzik egy olyan platform, ahol a zenék nem csak felületesen kapnak értékelést. Így született meg az ötlet: létrehozni egy weboldalt, ahol a zenék, albumok és előadók méltó figyelmet kapnak.
-            </p>
+              <h3 class="mt-5">Mit is jelent számomra a zene?</h3>
+              <p class="mt-4">A zene olyan varázslatos kifejezés, amely mélyen behatol a lelkembe. Nem csupán hangok sorozata, hanem egy kapu a képzeletemhez és érzelmeimhez. Engedem, hogy a dallamok és ritmusok elragadjanak, és átadják nekem mindazt, amit szavakkal nehéz lenne kifejezni. <br>
+                Minden műfajnak megvan a maga varázsa: a rock energiája, a jazz szabadsága, a klasszikus zene mélysége és a pop könnyedsége. A zene nem csak hallgatásra való – magam is zenét szerzek, és a hangszerjátékban találom meg a belső harmóniát.
+              </p>
             </div>
-
+            <h2 class="mt-5">Kedvenc albumjaim:</h2>
           </div>
-
         </div>
-  </section>
-  <hr>
-  <section>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 col-12 d-flex justify-content-center">
-          <img src="./media/marcos.jpg" class="img-fluid kerekites" alt="PFP" id="pfp">
+        <div class="row mt-3">
+          <div class="col-lg-4 col-md-4 text-center image-container">
+            <img src="./media/aquemini.jpg" alt="Aquemini cover" title="Aquemini cover" class="hover-image meretezes">
+            <p>Outkast - Aquemini</p>
+            <a href="https://open.spotify.com/album/5ceB3rxgXqIRpsOvVzTG28?si=OQZhcOa1SzybimQ8YItztQ"
+              target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
+          </div>
+          <div class="col-lg-4 col-md-4 text-center image-container">
+            <img src="./media/redhot.webp" alt="Blood Sugar Sex Magik cover" title="Blood Sugar Sex Magik cover"
+              class="hover-image meretezes">
+            <p>Red Hot Chili Peppers - Blood Sugar Sex Magik</p>
+            <a href="https://open.spotify.com/album/30Perjew8HyGkdSmqguYyg?si=tRx9w_Z-QmquhNm0ry0_cQ"
+              target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
+          </div>
+          <div class="col-lg-4 col-md-4 text-center image-container">
+            <img src="./media/wutang.jpg" alt="Enter the Wu-Tang cover" title="Enter the Wu-Tang cover"
+              class="hover-image meretezes">
+            <p>Wu-Tang Clan - Enter the Wu-Tang</p>
+            <a href="https://open.spotify.com/album/3tQd5mwBtVyxCoEo4htGAV?si=IV7yjAYUQQKKB9NonuoCJg"
+              target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
+          </div>
         </div>
-        <div class="col-md-8 col-12 text-left m-auto">
-          <h3 class="jaro-nev fadee">Pásztor Marcell</h3>
-          <h3 class="mt-3 jacquard-12-regular fadee">Certified Lover Boy</h3>
-          <div class="fadee">
-            <h3 class="mt-5">Bemutatkozás:</h3>
-            <p>Szia! Marci vagyok, egy álomkövető, aki a zene varázslatos világában találta meg a boldogságot. Születésem óta a dallamok és ritmusok kísérnek, mint egy hűsítő szellő a forró nyári napokon. <br>
-            Kedvenc műfajaim: Old-School Hip-Hop, Rock, Dance Rock, Funk, Jazz, Punk, Techno, és minden más. <br>
-            Basszusgitáros és zeneszerző is vagyok.
+      </div>
+    </section>
+    <hr class="mt-3">
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4 col-12 d-flex justify-content-center">
+            <img src="./media/bd.jpg" class="img-fluid kerekites" alt="PFP" id="pfp">
+          </div>
+          <div class="col-md-8 col-12 text-left m-auto">
+            <h3 class="jaro-nev fadee">Bélai Dominik Péter</h3>
+            <h3 class="mt-3 jacquard-12-regular fadee">Certified King</h3>
+            <div class="fadee">
+              <h3 class="mt-5">Bemutatkozás:</h3>
+              <p>Sziasztok! Bélai Dominik Péter vagyok, 18 éves, és a zene mindig is központi szerepet játszott az életemben. Gyerekkorom alatt a '70-es, '80-as, '90-es évek zenéjén nevelkedtem, főleg rockon.<br> 
+                <br> Kedvenc műfajaim: Album Rock, Psychedelic Rock, Black Metal, Punk, Hungarian Rock. <br>
+                Gitáron is játszok.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-left">
+            <div class="fadee">
+              <h3 class="mt-5">Mit is jelent számomra a zene?</h3>
+              <p class="mt-4"><br>
+                A zene számomra magát az életet jeleni. Úgy gondolom az összes érzelmeinkhez, életünk során különböző szituációkhoz mindig tudunk egy illőzeneszámot, esetleg albumot találni. Én úgy gondolom a zene nagy mértékben tudja befolyásolni életünket, kapcsolatainkat. Számos barátommal kifejezetten a kőzős zenei izlésünk miatt kerültün közel, éltunk meg koncerteket, pogokat, verekedéseket, lenyűgöző hang és fénytechnikákat.
+                <br>
+                Úgy hiszem a zene képes embereket ráébreszteni a hiányos életükre, rossz szokásaikra, hiszen ez velem is megtörtént. Ezért is olyan különleges nekem a zene, és ezért is ritka, hogy legalább 1 fülem ne lenne bedugva.
+              </p>
+            </div>
+            <h2 class="mt-5">Kedvenc albumjaim:</h2>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-lg-4 col-md-4 text-center image-container">
+            <img src="./media/station.jpg" alt="Station to station cover" title="Station to station cover"
+              class="hover-image meretezes">
+            <p>David Bowie - Station to Station</p>
+            <a href="https://open.spotify.com/album/0MWrKayUshRuT8maG4ZAOU?si=fILYno_mQDCJ6dseIAXOvw"
+              target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
+          </div>
+          <div class="col-lg-4 col-md-4 text-center image-container">
+            <img src="./media/crimson.jpeg" alt="In the Court of the Crimson King
+            cover" title="In the Court of the Crimson King
+            cover" class="hover-image meretezes">
+            <p>King Crimson - In the Court of the Crimson King
             </p>
+            <a href="https://open.spotify.com/album/75ol9OP8bJaRqzGimpFHDm?si=QM0GnmHpSDqXR_2BTWozrA"
+              target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
+          </div>
+          <div class="col-lg-4 col-md-4 text-center image-container">
+            <img src="./media/wall.jpg" alt="The Wall cover" title="The Wall cover" class="hover-image meretezes">
+            <p>Pink Floyd - The Wall</p>
+            <a href="https://open.spotify.com/album/6WaIQHxEHtZL0RZ62AuY0g?si=3JwaqFjrQxigJZIdb48auw"
+              target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col text-left">
-          <div class="fadee">
-            <h3 class="mt-5">Mit is jelent számomra a zene?</h3>
-            <p class="mt-4">A zene olyan varázslatos kifejezés, amely mélyen behatol a lelkembe. Nem csupán hangok sorozata, hanem egy kapu a képzeletemhez és érzelmeimhez. Engedem, hogy a dallamok és ritmusok elragadjanak, és átadják nekem mindazt, amit szavakkal nehéz lenne kifejezni. <br>
-              Minden műfajnak megvan a maga varázsa: a rock energiája, a jazz szabadsága, a klasszikus zene mélysége és a pop könnyedsége. A zene nem csak hallgatásra való – magam is zenét szerzek, és a hangszerjátékban találom meg a belső harmóniát.
-            </p>
+    </section>
+    <hr class="mt-3">
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4 col-12 d-flex justify-content-center">
+            <img src="./media/cspp.jpg" class="img-fluid kerekites" alt="PFP" id="pfp">
           </div>
-          <h2 class="mt-5">Kedvenc albumjaim:</h2>
-        </div>
-
-      </div>
-      <div class="row mt-3">
-        <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/aquemini.jpg" alt="Aquemini cover" title="Aquemini cover" class="hover-image meretezes">
-          <p>Outkast - Aquemini</p>
-          <a href="https://open.spotify.com/album/5ceB3rxgXqIRpsOvVzTG28?si=OQZhcOa1SzybimQ8YItztQ"
-            target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
-        </div>
-        <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/redhot.webp" alt="Blood Sugar Sex Magik cover" title="Blood Sugar Sex Magik cover"
-            class="hover-image meretezes">
-          <p>Red Hot Chili Peppers - Blood Sugar Sex Magik</p>
-          <a href="https://open.spotify.com/album/30Perjew8HyGkdSmqguYyg?si=tRx9w_Z-QmquhNm0ry0_cQ"
-            target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
-        </div>
-        <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/wutang.jpg" alt="Enter the Wu-Tang cover" title="Enter the Wu-Tang cover"
-            class="hover-image meretezes">
-          <p>Wu-Tang Clan - Enter the Wu-Tang</p>
-          <a href="https://open.spotify.com/album/3tQd5mwBtVyxCoEo4htGAV?si=IV7yjAYUQQKKB9NonuoCJg"
-            target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-  <hr class="mt-3">
-  <section>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 col-12 d-flex justify-content-center">
-          <img src="./media/bd.jpg" class="img-fluid kerekites" alt="PFP" id="pfp">
-        </div>
-        <div class="col-md-8 col-12 text-left m-auto">
-          <h3 class="jaro-nev fadee">Bélai Dominik Péter</h3>
-          <h3 class="mt-3 jacquard-12-regular fadee">Certified King</h3>
-          <div class="fadee">
-            <h3 class="mt-5">Bemutatkozás:</h3>
-            <p>Sziasztok! Bélai Dominik Péter vagyok, 18 éves, és a zene mindig is központi szerepet játszott az életemben. Gyerekkorom alatt a '70-es, '80-as, '90-es évek zenéjén nevelkedtem, főleg rockon.<br> 
-              <br> Kedvenc műfajaim: Album Rock, Psychedelic Rock, Black Metal, Punk, Hungarian Rock. <br>
-              Gitáron is játszok.
-            </p>
+          <div class="col-md-8 col-12 text-left m-auto">
+            <h3 class="jaro-nev fadee">Csótai Péter</h3>
+            <h3 class="mt-3 jacquard-12-regular fadee">Melodic Rap Enjoyer</h3>
+            <div class="fadee">
+              <h3 class="mt-5">Bemutatkozás:</h3>
+              <p>Kedves látogató! Csótai Péter vagyok, 18 éves és szenvedélyesen szeretem a zenét. Már kisgyerekkorom óta
+                a zene az életem szerves része, és minden lépésemet végigkísérte. Az első pillanattól kezdve éreztem, hogy
+                a zene az, amiben igazán ki tudom fejezni magam. <br>Számomra a zene nem csak hobbi vagy munka, hanem
+                életforma. Minden egyes dallal, amit írok vagy előadok, egy darabot adok magamból a világnak. Hiszem, hogy
+                a zene képes összekötni az embereket, és szeretném ezt az összekötő erőt minél szélesebb körben
+                megosztani. <br>
+                Kedvenc műfajaim: Rap, Trap, Hip-Hop, Pop-Rap and DANCE MONKEY DANCE MONKEY OHH OHH <br>
+                Dalszövegíró is vagyok.
+              </p>
+            </div>
           </div>
-
         </div>
-      </div>
-      <div class="row">
-        <div class="col text-left">
-          <div class="fadee">
-            <h3 class="mt-5">Mit is jelent számomra a zene?</h3>
-            <p class="mt-4"><br>
-              A zene számomra magát az életet jeleni. Úgy gondolom az összes érzelmeinkhez, életünk során különböző szituációkhoz mindig tudunk egy illőzeneszámot, esetleg albumot találni. Én úgy gondolom a zene nagy mértékben tudja befolyásolni életünket, kapcsolatainkat. Számos barátommal kifejezetten a kőzős zenei izlésünk miatt kerültün közel, éltunk meg koncerteket, pogokat, verekedéseket, lenyűgöző hang és fénytechnikákat.
-              <br>
-              Úgy hiszem a zene képes embereket ráébreszteni a hiányos életükre, rossz szokásaikra, hiszen ez velem is megtörtént. Ezért is olyan különleges nekem a zene, és ezért is ritka, hogy legalább 1 fülem ne lenne bedugva.
-            </p>
+        <div class="row">
+          <div class="col text-left">
+            <div class="fadee">
+              <h3 class="mt-5">Mit is jelent számomra a zene?</h3>
+              <p class="mt-4">A zene számomra több, mint egyszerű hangok sorozata; ez az életem szerves része és a
+                legmélyebb érzelmeim kifejezője. Gyerekkorom óta a zene volt az, ami átsegített a nehéz pillanatokon és
+                ami
+                megosztotta velem az örömöket. Amikor zenélek, úgy érzem, mintha egy másik világba lépnék, ahol minden
+                gondolat és érzés szabadon áramolhat. <br>
+
+                A zene számomra a kommunikáció egy különleges formája. Sokszor úgy érzem, hogy amit szavakkal nem tudok
+                kifejezni, azt a zene tökéletesen át tudja adni. Egy dalban ott van minden öröm, bánat, remény és álom,
+                amit
+                megélek. Minden egyes dallam, amit megírok, és minden hang, amit megszólaltatok, egy darabot hordoz
+                belőlem.
+                <br>
+
+                A zene ereje abban rejlik, hogy képes összekötni az embereket. Akár egy koncerten, akár egy baráti
+                összejövetelen, a zene mindig képes közös élményeket teremteni és hidakat építeni az emberek között. Ez az
+                összekötő erő az, ami igazán különlegessé teszi a zenét számomra.
+              </p>
+            </div>
+            <h2 class="mt-5">Kedvenc albumjaim:</h2>
           </div>
-          <h2 class="mt-5">Kedvenc albumjaim:</h2>
         </div>
-
-      </div>
-      <div class="row mt-3">
-        <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/station.jpg" alt="Station to station cover" title="Station to station cover"
-            class="hover-image meretezes">
-          <p>David Bowie - Station to Station</p>
-          <a href="https://open.spotify.com/album/0MWrKayUshRuT8maG4ZAOU?si=fILYno_mQDCJ6dseIAXOvw"
-            target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
-        </div>
-        <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/crimson.jpeg" alt="In the Court of the Crimson King
-          cover" title="In the Court of the Crimson King
-          cover" class="hover-image meretezes">
-          <p>King Crimson - In the Court of the Crimson King
-          </p>
-          <a href="https://open.spotify.com/album/75ol9OP8bJaRqzGimpFHDm?si=QM0GnmHpSDqXR_2BTWozrA"
-            target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
-        </div>
-        <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/wall.jpg" alt="The Wall cover" title="The Wall cover" class="hover-image meretezes">
-          <p>Pink Floyd - The Wall</p>
-          <a href="https://open.spotify.com/album/6WaIQHxEHtZL0RZ62AuY0g?si=3JwaqFjrQxigJZIdb48auw"
-            target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-  <hr class="mt-3">
-  <section>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 col-12 d-flex justify-content-center">
-          <img src="./media/cspp.jpg" class="img-fluid kerekites" alt="PFP" id="pfp">
-        </div>
-        <div class="col-md-8 col-12 text-left m-auto">
-          <h3 class="jaro-nev fadee">Csótai Péter</h3>
-          <h3 class="mt-3 jacquard-12-regular fadee">Melodic Rap Enjoyer</h3>
-          <div class="fadee">
-            <h3 class="mt-5">Bemutatkozás:</h3>
-            <p>Kedves látogató! Csótai Péter vagyok, 18 éves és szenvedélyesen szeretem a zenét. Már kisgyerekkorom óta
-              a zene az életem szerves része, és minden lépésemet végigkísérte. Az első pillanattól kezdve éreztem, hogy
-              a zene az, amiben igazán ki tudom fejezni magam. <br>Számomra a zene nem csak hobbi vagy munka, hanem
-              életforma. Minden egyes dallal, amit írok vagy előadok, egy darabot adok magamból a világnak. Hiszem, hogy
-              a zene képes összekötni az embereket, és szeretném ezt az összekötő erőt minél szélesebb körben
-              megosztani. <br>
-              Kedvenc műfajaim: Rap, Trap, Hip-Hop, Pop-Rap and DANCE MONKEY DANCE MONKEY OHH OHH <br>
-              Dalszövegíró is vagyok.
-            </p>
+        <div class="row mt-3">
+          <div class="col-lg-4 col-md-4 text-center image-container">
+            <img src="./media/drfl.png" alt="Death Race For Love cover" title="Death Race For Love cover"
+              class="hover-image meretezes">
+            <p>Juice WRLD - Death Race For Love</p>
+            <a href="https://open.spotify.com/album/1btu0SV2DOI5HoFsvUd78F?si=MdO6BMLWTfGjFY8w7uE7Rw"
+              target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
           </div>
-
-        </div>
-      </div>
-      <div class="row">
-        <div class="col text-left">
-          <div class="fadee">
-            <h3 class="mt-5">Mit is jelent számomra a zene?</h3>
-            <p class="mt-4">A zene számomra több, mint egyszerű hangok sorozata; ez az életem szerves része és a
-              legmélyebb érzelmeim kifejezője. Gyerekkorom óta a zene volt az, ami átsegített a nehéz pillanatokon és
-              ami
-              megosztotta velem az örömöket. Amikor zenélek, úgy érzem, mintha egy másik világba lépnék, ahol minden
-              gondolat és érzés szabadon áramolhat. <br>
-
-              A zene számomra a kommunikáció egy különleges formája. Sokszor úgy érzem, hogy amit szavakkal nem tudok
-              kifejezni, azt a zene tökéletesen át tudja adni. Egy dalban ott van minden öröm, bánat, remény és álom,
-              amit
-              megélek. Minden egyes dallam, amit megírok, és minden hang, amit megszólaltatok, egy darabot hordoz
-              belőlem.
-              <br>
-
-              A zene ereje abban rejlik, hogy képes összekötni az embereket. Akár egy koncerten, akár egy baráti
-              összejövetelen, a zene mindig képes közös élményeket teremteni és hidakat építeni az emberek között. Ez az
-              összekötő erő az, ami igazán különlegessé teszi a zenét számomra.
-            </p>
+          <div class="col-lg-4 col-md-4 text-center image-container">
+            <img src="./media/hellboy.jpg" alt="Hellboy cover" title="Hellboy cover" class="hover-image meretezes">
+            <p>Lil Peep - Hellboy</p>
+            <a href="https://open.spotify.com/album/2XCSTHVFG50wCnWPnkerRh?si=FJWSY1FdTMK6BwjO-KkINA"
+              target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
           </div>
-          <h2 class="mt-5">Kedvenc albumjaim:</h2>
+          <div class="col-lg-4 col-md-4 text-center image-container">
+            <img src="./media/gbgr.jpg" alt="Goodbye & Good Riddance cover" title="Goodbye & Good Riddance cover"
+              class="hover-image meretezes">
+            <p>Juice WRLD - Goodbye & Good Riddance</p>
+            <a href="https://open.spotify.com/album/6tkjU4Umpo79wwkgPMV3nZ?si=FiV35RBZTl-nUaXxInCm3g"
+              target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
+          </div>
         </div>
-
       </div>
-      <div class="row mt-3">
-        <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/drfl.png" alt="Death Race For Love cover" title="Death Race For Love cover"
-            class="hover-image meretezes">
-          <p>Juice WRLD - Death Race For Love</p>
-          <a href="https://open.spotify.com/album/1btu0SV2DOI5HoFsvUd78F?si=MdO6BMLWTfGjFY8w7uE7Rw"
-            target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
-        </div>
-        <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/hellboy.jpg" alt="Hellboy cover" title="Hellboy cover" class="hover-image meretezes">
-          <p>Lil Peep - Hellboy</p>
-          <a href="https://open.spotify.com/album/2XCSTHVFG50wCnWPnkerRh?si=FJWSY1FdTMK6BwjO-KkINA"
-            target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
-        </div>
-        <div class="col-lg-4 col-md-4 text-center image-container">
-          <img src="./media/gbgr.jpg" alt="Goodbye & Good Riddance cover" title="Goodbye & Good Riddance cover"
-            class="hover-image meretezes">
-          <p>Juice WRLD - Goodbye & Good Riddance</p>
-          <a href="https://open.spotify.com/album/6tkjU4Umpo79wwkgPMV3nZ?si=FiV35RBZTl-nUaXxInCm3g"
-            target="_blank"><span class="zene-link hover-text">Hallgasd meg itt!</span></a>
-        </div>
+    </section>
+    <hr class="mt-3">
+    <!--FOOTER-->
+    <footer class="mt-auto py-3">
+      <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
+      <span>|| Special thank: vehu <span class="heart fw-bold">❤</span></span>
+    </footer>
+    <script>
+      let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+      let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
 
-      </div>
+      let SignOutButton = document.getElementById('signoutbutton');
 
-    </div>
-  </section>
-  <hr class="mt-3">
-  <!--FOOTER-->
-  <footer class="mt-auto py-3">
-    <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
-    <span>|| Special thank: vehu <span class="heart fw-bold">❤</span></span>
-  </footer>
-
-  <script>
-    let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
-    let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
-
-    let SignOutButton = document.getElementById('signoutbutton');
-
-
-
-    let Signout = () => {
-      sessionStorage.removeItem("user-creds");
-      sessionStorage.removeItem("user-info");
-      window.location.href = 'bejelentkezes.html'
-    }
-
-    let CheckCred = () => {
-      if (!sessionStorage.getItem("user-creds"))
+      let Signout = () => {
+        sessionStorage.removeItem("user-creds");
+        sessionStorage.removeItem("user-info");
         window.location.href = 'bejelentkezes.html'
-    }
+      }
 
-    window.addEventListener('load', CheckCred);
-    SignOutButton.addEventListener('click', Signout);
-  </script>
+      let CheckCred = () => {
+        if (!sessionStorage.getItem("user-creds"))
+          window.location.href = 'bejelentkezes.html'
+      }
 
-</body>
-
+      window.addEventListener('load', CheckCred);
+      SignOutButton.addEventListener('click', Signout);
+    </script>
+  </body>
 </html>

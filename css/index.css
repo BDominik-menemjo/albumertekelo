@@ -20,6 +20,7 @@ img{
     }
     .img-asd{
         height: 25vh;
+        object-fit: cover;
     }
     
 }
@@ -61,6 +62,7 @@ main{
 .img-asd img {
     width: 100%;
     object-fit: cover;
+    border-radius: 15px;
 
 }
 
