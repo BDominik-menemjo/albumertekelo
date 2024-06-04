@@ -1,443 +1,456 @@
 <!DOCTYPE html>
 <html lang="hu">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albumértékelő weboldal</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/kategoriak.css">
-    <script src="./js/bootstrap.bundle.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js"></script>
-  </head>
-  <body onload="clear()">
-    <!--NAVBAR-->
-    <header class="sticky-top">
-      <nav class="navbar navbar-expand-lg bg-dark p-0">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html"><img src="./media/icon.png" alt="Bakelit ikon" title="Bakelit ikon" width="70" height="55" class="d-inline-block align-text-top"></a>
-          <button class="navbar-toggler ms-auto border-light" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-0">
-              <li class="nav-item">
-                <a class="nav-link" href="./index.html">Főoldal</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./kategoriak.html">Kategóriák</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./profil.html">Profil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./impresszum.html">Impresszum</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <button class="btn btn-outline-success" type="button" id="signoutbutton">Kijelentkezés</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <!--MAIN-->
-    <section>
-      <div class="container-fluid">
-        <h2 class="my-5">Válassz zsánert és értékelj!</h2>
-        <div class="d-flex flex-sm-row flex-column justify-content-evenly text-center my-5">
-          <button type="button" class="btn btn-primary px-5 py-2 my-3" id="rockButton"
-            onclick="showListaRock()">Rock</button>
-          <button type="button" class="btn btn-success px-5 py-2 my-3" id="popButton"
-            onclick="showListaPop()">Pop</button>
-          <button type="button" class="btn btn-secondary px-5 py-2 my-3" id="hipHopButton"
-            onclick="showListaHipHop()">Hip-Hop</button>
-          <button type="button" class="btn btn-danger px-5 py-2 my-3" id="egyebButton"
-            onclick="showListaEgyeb()">Egyéb</button>
-        </div>
-        <section class="cont listaRock" style="display: none;">
-          <h3 class="my-4">Válassz!</h3>
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Előadó</th>
-                <th scope="col">Album</th>
-                <th scope="col">Értékelés átlag / (db)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr onclick="showReviewModal(0)" id="0">
-                <th scope="row">1</th>
-                <td>Red Hot Chili Peppers</td>
-                <td>Blood Sugar Sex Magik</td>
-                <td>
-                  <span id="atlagRating0">-</span>
-                  <span id="reviewCount0"></span>
-                </td>
-              </tr>
-              <tr onclick="showReviewModal(1)" id="1">
-                <th scope="row">2</th>
-                <td>Guns N' Roses</td>
-                <td>Appetite For Destruction</td>
-                <td>
-                  <span id="atlagRating1">-</span>
-                  <span id="reviewCount1"></span>
-                </td>
-              </tr>
-              <tr onclick="showReviewModal(2)" id="2">
-                <th scope="row">3</th>
-                <td>David Bowie</td>
-                <td>Station to Station</td>
-                <td>
-                  <span id="atlagRating2">-</span>
-                  <span id="reviewCount2"></span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section class="cont listaPop" style="display: none;">
-          <h3 class="my-4">Válassz!</h3>
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Előadó</th>
-                <th scope="col">Album</th>
-                <th scope="col">Értékelés átlag / (db)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr onclick="showReviewModal(3)" id="3">
-                <th scope="row">1</th>
-                <td>Michael Jackson</td>
-                <td>Bad</td>
-                <td>
-                  <span id="atlagRating3">-</span>
-                  <span id="reviewCount3"></span>
-                </td>
-              </tr>
-              <tr onclick="showReviewModal(4)" id="4">
-                <th scope="row">2</th>
-                <td>Gorillaz</td>
-                <td>Demon Days</td>
-                <td>
-                  <span id="atlagRating4">-</span>
-                  <span id="reviewCount4"></span>
-                </td>
-              </tr>
-              <tr onclick="showReviewModal(5)" id="5">
-                <th scope="row">3</th>
-                <td>Amy Winehouse</td>
-                <td>Back To Black</td>
-                <td>
-                  <span id="atlagRating5">-</span>
-                  <span id="reviewCount5"></span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section class="cont listaHipHop" style="display: none;">
-          <h3 class="my-4">Válassz!</h3>
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Előadó</th>
-                <th scope="col">Album</th>
-                <th scope="col">Értékelés átlag / (db)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr onclick="showReviewModal(6)" id="6">
-                <th scope="row">1</th>
-                <td>Outkast</td>
-                <td>Aquemini</td>
-                <td>
-                  <span id="atlagRating6">-</span>
-                  <span id="reviewCount6"></span>
-                </td>
-              </tr>
-              <tr onclick="showReviewModal(7)" id="7">
-                <th scope="row">2</th>
-                <td>Juice WRLD</td>
-                <td>Death Race For Love</td>
-                <td>
-                  <span id="atlagRating7">-</span>
-                  <span id="reviewCount7"></span>
-                </td>
-              </tr>
-              <tr onclick="showReviewModal(8)" id="8">
-                <th scope="row">3</th>
-                <td>Wu-Tang Clan</td>
-                <td>Enter The Wu-Tang (36 Chambers)</td>
-                <td>
-                  <span id="atlagRating8">-</span>
-                  <span id="reviewCount8"></span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section class="cont listaEgyeb" style="display: none;">
-          <h3 class="my-4">Válassz!</h3>
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Előadó</th>
-                <th scope="col">Album</th>
-                <th scope="col">Értékelés átlag / (db)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr onclick="showReviewModal(9)" id="9">
-                <th scope="row">1</th>
-                <td>Burzum</td>
-                <td>Filosofem</td>
-                <td>
-                  <span id="atlagRating9">-</span>
-                  <span id="reviewCount9"></span>
-                </td>
-              </tr>
-              <tr onclick="showReviewModal(10)" id="10">
-                <th scope="row">2</th>
-                <td>The Prodigy</td>
-                <td>The Fat of the Land</td>
-                <td>
-                  <span id="atlagRating10">-</span>
-                  <span id="reviewCount10"></span>
-                </td>
-              </tr>
-              <tr onclick="showReviewModal(11)" id="11">
-                <th scope="row">3</th>
-                <td>Miles Davis</td>
-                <td>Bitches Brew</td>
-                <td>
-                  <span id="atlagRating11">-</span>
-                  <span id="reviewCount11"></span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <!--ALBUMOK SECTION-->
-        <h1 class="my-5">Albumok és vélemények</h1>
-        <section id="ratingsContainer">
 
-        </section>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Albumértékelő weboldal</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/kategoriak.css">
+  <script src="./js/bootstrap.bundle.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js"></script>
+</head>
+
+<body onload="clear()">
+  <!--NAVBAR-->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg bg-dark p-0">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./index.html"></a>
+        <button class="navbar-toggler ms-auto border-light" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-0">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Főoldal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./kategoriak.html">Kategóriák</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./profil.html">Profil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./impresszum.html">Impresszum</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <button class="btn btn-outline-success" type="button" id="signoutbutton">Kijelentkezés</button>
+          </form>
+        </div>
       </div>
-    </section>
-    <!--MODAL-->
-    <div class="modal fade" id="reviewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="reviewModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="reviewModalLabel"></h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="container-fluid">
-              <div class="row text-center mb-3">
-                <div class="col-md-4 mb-3 mb-md-0"><img src="" class="img-fluid" id="reviewAlbumCover" alt="album cover"
-                    width="231px" height="231px"></div>
-                <div class="col-md-8 mb-3 mb-md-0">
-                  <div class="mb-3">
-                    <textarea class="form-control reviewTextArea" id="reviewText" placeholder="Írjon véleményt..."
-                      style="resize: none;"></textarea>
-                  </div>
+    </nav>
+  </header>
+  <!--MAIN-->
+  <section>
+    <div class="container-fluid">
+      <h2 class="my-5">Válassz zsánert és értékelj!</h2>
+      <div class="d-flex flex-sm-row flex-column justify-content-evenly text-center my-5">
+        <button type="button" class="btn btn-primary px-5 py-2 my-3" id="rockButton"
+          onclick="showListaRock()">Rock</button>
+        <button type="button" class="btn btn-success px-5 py-2 my-3" id="popButton"
+          onclick="showListaPop()">Pop</button>
+        <button type="button" class="btn btn-secondary px-5 py-2 my-3" id="hipHopButton"
+          onclick="showListaHipHop()">Hip-Hop</button>
+        <button type="button" class="btn btn-danger px-5 py-2 my-3" id="egyebButton"
+          onclick="showListaEgyeb()">Egyéb</button>
+      </div>
+
+      <section class="cont listaRock" style="display: none;">
+        <h3 class="my-4">Válassz!</h3>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Előadó</th>
+              <th scope="col">Album</th>
+              <th scope="col">Értékelés átlag / (db)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onclick="showReviewModal(0)" id="0">
+              <th scope="row">1</th>
+              <td>Red Hot Chili Peppers</td>
+              <td>Blood Sugar Sex Magik</td>
+              <td>
+                <span id="atlagRating0">-</span>
+                <span id="reviewCount0"></span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(1)" id="1">
+              <th scope="row">2</th>
+              <td>Guns N' Roses</td>
+              <td>Appetite For Destruction</td>
+              <td>
+                <span id="atlagRating1">-</span>
+                <span id="reviewCount1"></span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(2)" id="2">
+              <th scope="row">3</th>
+              <td>David Bowie</td>
+              <td>Station to Station</td>
+              <td>
+                <span id="atlagRating2">-</span>
+                <span id="reviewCount2"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="cont listaPop" style="display: none;">
+        <h3 class="my-4">Válassz!</h3>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Előadó</th>
+              <th scope="col">Album</th>
+              <th scope="col">Értékelés átlag / (db)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onclick="showReviewModal(3)" id="3">
+              <th scope="row">1</th>
+              <td>Michael Jackson</td>
+              <td>Bad</td>
+              <td>
+                <span id="atlagRating3">-</span>
+                <span id="reviewCount3"></span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(4)" id="4">
+              <th scope="row">2</th>
+              <td>Gorillaz</td>
+              <td>Demon Days</td>
+              <td>
+                <span id="atlagRating4">-</span>
+                <span id="reviewCount4"></span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(5)" id="5">
+              <th scope="row">3</th>
+              <td>Amy Winehouse</td>
+              <td>Back To Black</td>
+              <td>
+                <span id="atlagRating5">-</span>
+                <span id="reviewCount5"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="cont listaHipHop" style="display: none;">
+        <h3 class="my-4">Válassz!</h3>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Előadó</th>
+              <th scope="col">Album</th>
+              <th scope="col">Értékelés átlag / (db)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onclick="showReviewModal(6)" id="6">
+              <th scope="row">1</th>
+              <td>Outkast</td>
+              <td>Aquemini</td>
+              <td>
+                <span id="atlagRating6">-</span>
+                <span id="reviewCount6"></span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(7)" id="7">
+              <th scope="row">2</th>
+              <td>Juice WRLD</td>
+              <td>Death Race For Love</td>
+              <td>
+                <span id="atlagRating7">-</span>
+                <span id="reviewCount7"></span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(8)" id="8">
+              <th scope="row">3</th>
+              <td>Wu-Tang Clan</td>
+              <td>Enter The Wu-Tang (36 Chambers)</td>
+              <td>
+                <span id="atlagRating8">-</span>
+                <span id="reviewCount8"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="cont listaEgyeb" style="display: none;">
+        <h3 class="my-4">Válassz!</h3>
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Előadó</th>
+              <th scope="col">Album</th>
+              <th scope="col">Értékelés átlag / (db)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr onclick="showReviewModal(9)" id="9">
+              <th scope="row">1</th>
+              <td>Burzum</td>
+              <td>Filosofem</td>
+              <td>
+                <span id="atlagRating9">-</span>
+                <span id="reviewCount9"></span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(10)" id="10">
+              <th scope="row">2</th>
+              <td>The Prodigy</td>
+              <td>The Fat of the Land</td>
+              <td>
+                <span id="atlagRating10">-</span>
+                <span id="reviewCount10"></span>
+              </td>
+            </tr>
+            <tr onclick="showReviewModal(11)" id="11">
+              <th scope="row">3</th>
+              <td>Miles Davis</td>
+              <td>Bitches Brew</td>
+              <td>
+                <span id="atlagRating11">-</span>
+                <span id="reviewCount11"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!--ALBUMOK SECTION-->
+      <h1 class="my-5">Albumok és vélemények</h1>
+      <section id="ratingsContainer">
+
+      </section>
+    </div>
+  </section>
+
+  <!--MODAL-->
+  <div class="modal fade" id="reviewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="reviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="reviewModalLabel"></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row text-center mb-3">
+              <div class="col-md-4 mb-3 mb-md-0"><img src="" class="img-fluid" id="reviewAlbumCover" alt="album cover"
+                  width="231px" height="231px"></div>
+              <div class="col-md-8 mb-3 mb-md-0">
+                <div class="mb-3">
+                  <textarea class="form-control reviewTextArea" id="reviewText" placeholder="Write a review..."
+                    style="resize: none;"></textarea>
                 </div>
               </div>
-              <div class="d-flex justify-content-evenly">
-                <label for="rating" class="form-label">Értékelés</label>
-                <input type="number" placeholder="0-10" min="0" max="10" id="ratingNumber">
-              </div>
+            </div>
+            <div class="d-flex justify-content-evenly">
+              <label for="rating" class="form-label">Rating</label>
+              <input type="number" placeholder="0-10" min="0" max="10" id="ratingNumber">
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">❌</button>
-            <button type="button" class="btn btn-primary" id="submitReviewBtn" data-bs-dismiss="modal">✅</button>
-          </div>
+        </div>
+        <div class="modal-footer">
+          <span class="text-start" id="albumID"></span>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">❌</button>
+          <button type="button" class="btn btn-primary" id="submitReviewBtn" data-bs-dismiss="modal">✅</button>
         </div>
       </div>
     </div>
-    <!--FOOTER-->
-    <footer class="mt-auto py-3">
-      <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
-      <span>|| Special thank: vehu <span class="heart fw-bold">❤</span></span>
-    </footer>
-    <script>
-      let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
-      let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+  </div>
 
-      let SignOutButton = document.getElementById('signoutbutton');
+  <!--FOOTER-->
+  <footer class="mt-auto py-3">
+    <span>© 2024 Bélai Dominik Péter & Csótai Péter & Pásztor Marcell</span>
+    <span>|| Special thank: vehu <span class="heart fw-bold">❤</span></span>
+  </footer>
 
-      /*KIJELENTKEZÉS*/
+  <script>
+    let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+    let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
 
-      let Signout = () => {
-        sessionStorage.removeItem("user-creds");
-        sessionStorage.removeItem("user-info");
+    let SignOutButton = document.getElementById('signoutbutton');
+
+    /*KIJELENTKEZÉS*/
+
+    let Signout = () => {
+      sessionStorage.removeItem("user-creds");
+      sessionStorage.removeItem("user-info");
+      window.location.href = 'bejelentkezes.html'
+    }
+
+    let CheckCred = () => {
+      if (!sessionStorage.getItem("user-creds"))
         window.location.href = 'bejelentkezes.html'
-      }
+    }
 
-      let CheckCred = () => {
-        if (!sessionStorage.getItem("user-creds"))
-          window.location.href = 'bejelentkezes.html'
-      }
+    window.addEventListener('load', CheckCred);
+    SignOutButton.addEventListener('click', Signout);
 
-      window.addEventListener('load', CheckCred);
-      SignOutButton.addEventListener('click', Signout);
+  </script>
 
-    </script>
+  <script src="js/script.js"></script>
 
-    <script src="js/script.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+    import { getFirestore, addDoc, collection, getDocs, orderBy, query, getAggregateFromServer, serverTimestamp, where } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
 
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-      import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
-      import { getFirestore, addDoc, collection, getDocs, orderBy, query, getAggregateFromServer, serverTimestamp, where } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyAjCWCtTUugbV332yZGIL5bbGAJQ1AW9Gc",
+      authDomain: "albumertekelo-4d94e.firebaseapp.com",
+      projectId: "albumertekelo-4d94e",
+      storageBucket: "albumertekelo-4d94e.appspot.com",
+      messagingSenderId: "948706842482",
+      appId: "1:948706842482:web:b9f9fa75e7258a336dafeb"
+    };
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyAjCWCtTUugbV332yZGIL5bbGAJQ1AW9Gc",
-        authDomain: "albumertekelo-4d94e.firebaseapp.com",
-        projectId: "albumertekelo-4d94e",
-        storageBucket: "albumertekelo-4d94e.appspot.com",
-        messagingSenderId: "948706842482",
-        appId: "1:948706842482:web:b9f9fa75e7258a336dafeb"
-      };
+    const app = initializeApp(firebaseConfig)
+    const db = getFirestore();
 
-      const app = initializeApp(firebaseConfig)
-      const db = getFirestore();
+    const ratingArray = {};
+    const albumArray = {};
 
-      const ratingArray = {};
-      const albumArray = {};
-
-      //összes rating
-      const querySnapshotRatings = await getDocs(query(collection(db, "ratings"), orderBy("timestamp", "desc")));
-      const querySnapshotAlbums = await getDocs(collection(db, "albums"));
-      querySnapshotRatings.forEach((docRating) => {
-        querySnapshotAlbums.forEach((docAlbum) => {
-          if (docRating.data().albumId == docAlbum.data().albumId) {
-            const ratinghtml = `
-            <div class="container-fluid d-flex justify-content-center my-3">
-              <div class="bg-white p-4 rounded-2 shadow w-md-75 w-100">
-                <div class="row">
-                  <div class="col-md-4 text-center">
-                    <img src="${docAlbum.data().albumImage}" alt="album kép" class="img-fluid" width="300px" height="300px">
-                    <p>${docAlbum.data().albumArtist} - ${docAlbum.data().albumName}</p>
-                  </div>
-                  <div class="col-md-8">
-                      <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h3 class="m-0 fw-bold" id="reviewUser">${docRating.data().userName}</h3>
-                        <div class="text-end">
-                            <strong>Értékelés: </strong><span id="reviewRating">${docRating.data().rating}/10</span>
-                        </div>
+    //összes rating
+    const querySnapshotRatings = await getDocs(query(collection(db, "ratings"), orderBy("timestamp", "desc")));
+    const querySnapshotAlbums = await getDocs(collection(db, "albums"));
+    querySnapshotRatings.forEach((docRating) => {
+      querySnapshotAlbums.forEach((docAlbum) => {
+        if (docRating.data().albumId == docAlbum.data().albumId) {
+          const ratinghtml = `
+          <div class="container-fluid d-flex justify-content-center my-3">
+            <div class="bg-white p-4 rounded-2 shadow w-md-75 w-100">
+              <div class="row">
+                <div class="col-md-4 text-center">
+                  <img src="${docAlbum.data().albumImage}" alt="album kép" class="img-fluid" width="300px" height="300px">
+                  <p>${docAlbum.data().albumArtist} - ${docAlbum.data().albumName}</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h3 class="m-0 fw-bold" id="reviewUser">${docRating.data().userName}</h3>
+                      <div class="text-end">
+                          <strong>Értékelés: </strong><span id="reviewRating">${docRating.data().rating}/10</span>
                       </div>
-                      <div class="comment">
-                        <h4 id="reviewComment">${docRating.data().reviewText}</h4>
-                      </div>
-                      <div class="timestamp text-end">
-                        <h4 id="reviewComment">${docRating.data().timestamp}</h4>
-                      </div>
-                  </div>
+                    </div>
+                    <div class="comment">
+                      <h4 id="reviewComment">${docRating.data().reviewText}</h4>
+                    </div>
+                    <div class="timestamp text-end">
+                      <h4 id="reviewComment">${docRating.data().timestamp}</h4>
+                    </div>
                 </div>
               </div>
-            </div>`;
-            document.getElementById("ratingsContainer").innerHTML += ratinghtml;
+            </div>
+          </div>`;
+          document.getElementById("ratingsContainer").innerHTML += ratinghtml;
+        }
+      })
+    });
+
+    /*ÁTLAG ÉS DARAB SZÁMOLÁS*/
+
+    querySnapshotRatings.forEach((docRating) => {
+      querySnapshotAlbums.forEach((docAlbum) => {
+        if (docAlbum.data().albumId == docRating.data().albumId) {
+          if (ratingArray[docAlbum.data().albumId]) {
+            ratingArray[docAlbum.data().albumId] += docRating.data().rating;
+            albumArray[docAlbum.data().albumId] = (albumArray[docAlbum.data().albumId] || 0) + 1;
+          } else {
+            ratingArray[docAlbum.data().albumId] = docRating.data().rating;
+            albumArray[docAlbum.data().albumId] = 1;
           }
-        })
+        }
       });
+    });
 
-      /*ÁTLAG ÉS DARAB SZÁMOLÁS*/
+    for (let albumId in ratingArray) {
+      let avgRating = ratingArray[albumId] / albumArray[albumId];
+      let reviewCount = albumArray[albumId];
 
-      querySnapshotRatings.forEach((docRating) => {
-        querySnapshotAlbums.forEach((docAlbum) => {
-          if (docAlbum.data().albumId == docRating.data().albumId) {
-            if (ratingArray[docAlbum.data().albumId]) {
-              ratingArray[docAlbum.data().albumId] += docRating.data().rating;
-              albumArray[docAlbum.data().albumId] = (albumArray[docAlbum.data().albumId] || 0) + 1;
-            } else {
-              ratingArray[docAlbum.data().albumId] = docRating.data().rating;
-              albumArray[docAlbum.data().albumId] = 1;
-            }
-          }
-        });
-      });
+      document.getElementById(`atlagRating${albumId}`).textContent = `${avgRating.toFixed(2)} (${reviewCount})`;
+    }
 
-      for (let albumId in ratingArray) {
-        let avgRating = ratingArray[albumId] / albumArray[albumId];
-        let reviewCount = albumArray[albumId];
+    console.log(ratingArray);
+    console.log(albumArray);
 
-        document.getElementById(`atlagRating${albumId}`).textContent = `${avgRating.toFixed(2)} (${reviewCount})`;
+    document.getElementById("submitReviewBtn").addEventListener("click", async function (e) {
+      e.preventDefault();
+
+      const ratingsCollection = collection(db, "ratings");
+
+      const currentdate = new Date();
+
+      //ÉRTÉKELT MÁR ALBUMOT VAGY NEM?
+      const querySnapshot = await getDocs(query(collection(db, "ratings"), where("albumId", "==", document.getElementById("albumID").innerText), where("userName", "==", JSON.parse(sessionStorage.getItem("user-info")).username)));
+      if (querySnapshot.docs.length > 0) {
+        alert("Ezt az albumot már értékelted!");
+        return;
       }
 
-      console.log(ratingArray);
-      console.log(albumArray);
+      //HA RATING ÜRES
 
-      document.getElementById("submitReviewBtn").addEventListener("click", async function (e) {
-        e.preventDefault();
-
-        const ratingsCollection = collection(db, "ratings");
-
-        const currentdate = new Date();
-
-        //ÉRTÉKELT MÁR ALBUMOT VAGY NEM?
-        const querySnapshot = await getDocs(query(collection(db, "ratings"), where("albumId", "==", document.getElementById("albumID").innerText), where("userName", "==", JSON.parse(sessionStorage.getItem("user-info")).username)));
-        if (querySnapshot.docs.length > 0) {
-          alert("Ezt az albumot már értékelted!");
-          return;
-        }
-
-        //HA RATING ÜRES
-
-        let rating = null;
-        if (document.getElementById("ratingNumber").value == "") {
+      let rating = null;
+      if (document.getElementById("ratingNumber").value == "") {
+        rating = null;
+      } else {
+        let ratingValue = Number(document.getElementById("ratingNumber").value);
+        if (isNaN(ratingValue)) {
           rating = null;
         } else {
-          let ratingValue = Number(document.getElementById("ratingNumber").value);
-          if (isNaN(ratingValue)) {
-            rating = null;
-          } else {
-            rating = ratingValue;
-          }
+          rating = ratingValue;
         }
-        if (rating === null || rating < 0 || rating > 10) {
-          alert("0 és 10 között adjon értékelést!");
-          return;
-        }
+      }
+      if (rating === null || rating < 0 || rating > 10) {
+        alert("0 és 10 között adjon értékelést!");
+        return;
+      }
 
-        //HA REVIEW ÜRES
+      //HA REVIEW ÜRES
 
-        let reviewText = "";
-        if (document.getElementById("reviewText").value.trim() == "") {
-          alert("Írjon véleményt!");
-          return;
-        } else {
-          reviewText = document.getElementById("reviewText").value.trim();
-        }
+      let reviewText = "";
+      if (document.getElementById("reviewText").value.trim() == "") {
+        alert("Írjon véleményt!");
+        return;
+      } else {
+        reviewText = document.getElementById("reviewText").value.trim();
+      }
 
-        const ratingData = {
-          albumId: document.getElementById("albumID").innerText,
-          rating: rating,
-          reviewText: reviewText,
-          timestamp: currentdate.toISOString().replace(/T/, ' ').substring(0, 19),
-          userName: JSON.parse(sessionStorage.getItem("user-info")).username
-        };
-        addDoc(ratingsCollection, ratingData)
-          .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-          })
-          .catch((error) => {
-            console.error("Error adding document: ", error);
-          });
-      });
-    </script>
-  </body>
+      const ratingData = {
+        albumId: document.getElementById("albumID").innerText,
+        rating: rating,
+        reviewText: reviewText,
+        timestamp: currentdate.toISOString().replace(/T/, ' ').substring(0, 19),
+        userName: JSON.parse(sessionStorage.getItem("user-info")).username
+      };
+      addDoc(ratingsCollection, ratingData)
+        .then((docRef) => {
+          console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+          console.error("Error adding document: ", error);
+        });
+    });
+
+  </script>
+</body>
+
 </html>

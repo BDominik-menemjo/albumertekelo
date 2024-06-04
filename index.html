@@ -17,7 +17,7 @@
     <header class="sticky-top">
       <nav class="navbar navbar-expand-lg bg-dark p-0">
         <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html"><img src="./media/icon.png" alt="Bakelit ikon" title="Bakelit ikon" width="70" height="55" class="d-inline-block align-text-top"></a>
+          <a class="navbar-brand" href="./index.html"></a>
           <button class="navbar-toggler ms-auto border-light" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -82,7 +82,7 @@
                   <h5 class="card-title">Micsoda?</h5>
                   <p class="card-text">Kevin Parker, a Tame Impala énekese eladja egész zenei katalógusukat</p>
                   <a href="https://www.stereogum.com/2263812/tame-impalas-kevin-parker-sells-entire-past-and-future-song-catalog/news/"
-                  target="_blank" class="btn btn-primary">Olvasd itt!</a>
+                  target="_blank" class="btn btn-primary">Olvasd itt! (angol)</a>
                 </div>
               </div>
             </div>
@@ -106,7 +106,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Ez már több a soknál!</h5>
                   <p class="card-text">A Sporify megemeli a prémium árát</p>
-                  <a href="https://consequence.net/2024/06/spotify-new-price-hikes/"  target="_blank" class="btn btn-primary">Olvasd itt!</a>
+                  <a href="https://consequence.net/2024/06/spotify-new-price-hikes/"  target="_blank" class="btn btn-primary">Olvasd itt! (angol)</a>
                 </div>
               </div>
             </div>
@@ -180,6 +180,41 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+        <!--
+        <div class="container">
+          <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner text-center">
+              <div class="carousel-item active" data-bs-interval="5000">
+                <a href="https://youtu.be/75LuLP18jNY" target="_blank"><img src="./media/serj.webp" class="d-block w-50">
+                  <p class="news">Új szám: Serj Tankian - "A.F. Day"</p>
+                </a>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <a href="https://www.stereogum.com/2263812/tame-impalas-kevin-parker-sells-entire-past-and-future-song-catalog/news/"
+                  target="_blank"><img src="./media/impala.webp" class="d-block w-50">
+                  <p class="news">Kevin Parker, a Tame Impala énekese eladja egész zenei katalógusukat</p>
+                </a>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <a href="https://consequence.net/2024/05/childish-gambino-world-tour-atavista/" target="_blank"><img
+                    src="./media/gambino.webp" class="d-block w-50">
+                  <p class="news">Childish Gambino világ körüli turnét jelent be</p>
+                </a>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        -->
       </section>
     </main>
     <!--FOOTER-->
@@ -195,6 +230,8 @@
       let MsgHead = document.getElementById('msg');
       let GreetHead = document.getElementById('greet');
       let SignOutButton = document.getElementById('signoutbutton');
+
+
 
       let Signout = () => {
         sessionStorage.removeItem("user-creds");
